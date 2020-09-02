@@ -22,33 +22,33 @@ StateChangeDetection - https://youtu.be/sA_J4w2cbJo
 
 https://www.arduino.cc/reference/pt/
 
-Padrão					Tipo de lexema						Sigla
+PadrÃ£o					Tipo de lexema						Sigla
 'CHAMAR', 'FUNCAO', 'INICIO',
 'FIM', 'VARIAVEL', 'TIPO', 'CHAMADA'	Palavras-chave						3 primeiras letras
 ________________________________________________________________________________________________________
-*, /, +, -				Operadores aritméticos					OpArit
+*, /, +, -				Operadores aritmÃ©ticos					OpArit
 ________________________________________________________________________________________________________
 =					Operador atribuicao					OpAtr
 ________________________________________________________________________________________________________
 !=, <, <=, ==, >, >=			Operadores relacionais					OpRel
 ________________________________________________________________________________________________________
-!(NÃO lógico), &&(E lógico),		Operadores boleanos					OpBol
-|| (OU lógico)									________________________________________________________________________________________________________
-https://thestempedia.com/tutorials/arduino-variable/	Variável				Var
-Sequências de letras (maiúsculas ou minúsculas),
-números ou o caractere underscore (_), que
-começa com letra (VERIFICAR CARACTERE _).
+!(NÃƒO lÃ³gico), &&(E lÃ³gico),		Operadores boleanos					OpBol
+|| (OU lÃ³gico)									________________________________________________________________________________________________________
+https://thestempedia.com/tutorials/arduino-variable/	VariÃ¡vel				Var
+SequÃªncias de letras (maiÃºsculas ou minÃºsculas),
+nÃºmeros ou o caractere underscore (_), que
+comeÃ§a com letra.
 ________________________________________________________________________________________________________
-Sequências de dígitos			CADEIA								________________________________________________________________________________________________________
+SequÃªncias de dÃ­gitos			CADEIA								________________________________________________________________________________________________________
 Constantes Inteiras			Constantes Inteiras					ConstInt
 ________________________________________________________________________________________________________
-Sequências de dígitos (com vírgula)	Constantes de Ponto Flutuante			       ConstPFlut
+SequÃªncias de dÃ­gitos (com vÃ­rgula)	Constantes de Ponto Flutuante			       ConstPFlut
 
-Dúvidas:
-- Linguagem de programação imperativa? - Como fica a análise sintática?
-- Quantos casos de teste para análise léxica eu preciso criar?
+DÃºvidas:
+- Linguagem de programaÃ§Ã£o imperativa? - Como fica a anÃ¡lise sintÃ¡tica?
+- Quantos casos de teste para anÃ¡lise lÃ©xica eu preciso criar?
 
-- Qual programa eu posso usar para gravar o vídeo para vender a linguagem?
+- Qual programa eu posso usar para gravar o vÃ­deo para vender a linguagem?
 
 
 
