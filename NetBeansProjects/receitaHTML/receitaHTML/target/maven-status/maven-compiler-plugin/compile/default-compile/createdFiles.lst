@@ -1,0 +1,9 @@
+br\ufscar\dc\compiladores\receitahtml\Principal.class
+br\ufscar\dc\compiladores\receitahtml\receitahtmlListener.class
+br\ufscar\dc\compiladores\receitahtml\receitahtmlParser$ReceitaContext.class
+br\ufscar\dc\compiladores\receitahtml\receitahtmlBaseListener.class
+br\ufscar\dc\compiladores\receitahtml\receitahtmlParser$TituloContext.class
+br\ufscar\dc\compiladores\receitahtml\receitahtmlParser.class
+br\ufscar\dc\compiladores\receitahtml\receitahtmlLexer.class
+br\ufscar\dc\compiladores\receitahtml\receitahtml.class
+br\ufscar\dc\compiladores\receitahtml\MeuErrorListener.class
