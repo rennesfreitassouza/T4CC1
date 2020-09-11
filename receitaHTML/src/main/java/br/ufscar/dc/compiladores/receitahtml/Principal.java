@@ -64,7 +64,7 @@ public class Principal {
         pr = new PrintWriter(arquivo); // Objeto do tipo PrintWriter que escreve no objeto 'arquivo' que está aberto para gravar dados.
 
         receitaHTMLsintaticoLexer lexicoParaSintatico = new receitaHTMLsintaticoLexer(cs); //Construção do léxico.
-        CommonTokenStream tokens = new CommonTokenStream(lexicoParaSintatico); //Inicialização do buffer de tokens.
+        CommonTokenStream tokens = new CommonTokenStream(lex); //Inicialização do buffer de tokens.
         receitaHTMLsintaticoParser parser = new receitaHTMLsintaticoParser(tokens); //Inicialização do parser. Para sua inicialização é passado como argumento o fluxo de tokens, que aponta para o lexer, que aponta para o arquivo inserido na linha de comando.
         MeuErrorListener meuErrorListener = new MeuErrorListener(pr);
         
