@@ -1,20 +1,2 @@
-NOME: "Bolo de cenoura sem glútem"
-DESCRICAO: "Bolo de cenoura sem glutém"
-RENDIMENTO: "10 porções"
-TEMPO DE PREPARO: "40 minutos"
-
-INGREDIENTES: //Variáveis
-- ovo = "3 ovos caipira"
-- farinha = "1/3 de xícara de farinha de trigo"
-
-UTENSILIOS: //Funções
-- liquid = "Liquidificador" {
-    * bater = "Bata no"
-    * despejar = "Despeje o conteúdo do"
-}
-
-MODO DE PREPARO: //Chamada de funções (por ordem de prioridade).
-i1: {
-    liquid.bater(ovo)
-    faca.cortar(carne)
-}
+NOME: "Bolo de cenoura sem glúten"
+DESCRICAO: TESTE
