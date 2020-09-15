@@ -78,6 +78,16 @@ public interface receitaHTMLsintaticoListener extends ParseTreeListener {
 	 */
 	void exitUtensilio(receitaHTMLsintaticoParser.UtensilioContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link receitaHTMLsintaticoParser#faz_o_que}.
+	 * @param ctx the parse tree
+	 */
+	void enterFaz_o_que(receitaHTMLsintaticoParser.Faz_o_queContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link receitaHTMLsintaticoParser#faz_o_que}.
+	 * @param ctx the parse tree
+	 */
+	void exitFaz_o_que(receitaHTMLsintaticoParser.Faz_o_queContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link receitaHTMLsintaticoParser#ingredientes}.
 	 * @param ctx the parse tree
 	 */
@@ -107,4 +117,24 @@ public interface receitaHTMLsintaticoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitModo_de_preparo(receitaHTMLsintaticoParser.Modo_de_preparoContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link receitaHTMLsintaticoParser#instrucoes_preparacao}.
+	 * @param ctx the parse tree
+	 */
+	void enterInstrucoes_preparacao(receitaHTMLsintaticoParser.Instrucoes_preparacaoContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link receitaHTMLsintaticoParser#instrucoes_preparacao}.
+	 * @param ctx the parse tree
+	 */
+	void exitInstrucoes_preparacao(receitaHTMLsintaticoParser.Instrucoes_preparacaoContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link receitaHTMLsintaticoParser#chamada_utensilio}.
+	 * @param ctx the parse tree
+	 */
+	void enterChamada_utensilio(receitaHTMLsintaticoParser.Chamada_utensilioContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link receitaHTMLsintaticoParser#chamada_utensilio}.
+	 * @param ctx the parse tree
+	 */
+	void exitChamada_utensilio(receitaHTMLsintaticoParser.Chamada_utensilioContext ctx);
 }

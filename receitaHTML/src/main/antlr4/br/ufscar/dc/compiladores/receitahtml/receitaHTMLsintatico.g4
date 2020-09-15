@@ -44,7 +44,7 @@ ErrorCharacter /*Expressão regular definida para reconhecer qualquer caractere 
 
 /*Início das regras sintáticas:*/
 receita /*Regra definidas para reconhecer a estrutura básica de um código na linguagem receitahtml.*/
-        : titulo descricao rendimento tempo_de_preparo utensilios ingredientes EOF
+        : titulo descricao rendimento tempo_de_preparo utensilios ingredientes modo_de_preparo EOF
         ;
 
 titulo /*Regra definida para reconhecer o padrão de formação de um título na linguagem receitaHTML.*/
@@ -63,15 +63,19 @@ tempo_de_preparo /*Regra definida para reconhecer o padrão de formação de um 
         ;
 
 utensilios /*Regra definida para reconhecer o padrão de formação de um ou vários utensílios na linguagem receitaHTML.*/
-        : (utensilio)*
+        : 'UTENSILIOS' ':' (utensilio)*
         ;
 
 utensilio /*Regra definida para reconhecer o padrão de formação de um utensílio na linguagem receitaHTML.*/
-        : '-' IdentVarfuncCham '=' STRING '{' ('*' IdentVarfuncCham '=' STRING )+ '}'
+        : '-' IdentVarfuncCham '=' STRING '{' (faz_o_que)+ '}'
+        ;
+
+faz_o_que /*Regra definida para reconhecer o padrão de formação de definição do que um utensílio faz.*/
+        : '*' IdentVarfuncCham '=' STRING
         ;
 
 ingredientes /*Regra definida para reconhecer o padrão de formação de um ou vários ingredientes na linguagem receitaHTML.*/
-        : (ingrediente)+
+        : 'INGREDIENTES' ':' (ingrediente)+
         ;
 
 ingrediente /*Regra definida para reconhecer o padrão de formação de um ingrediente na linguagem receitaHTML.*/
@@ -79,12 +83,18 @@ ingrediente /*Regra definida para reconhecer o padrão de formação de um ingre
         ;
 
 modo_de_preparo /*Regra definida para reconhecer o padrão de formação do modo de preparo na linguagem receitaHTML.*/
-        : 'MODO' 'DE' 'PREPARO' ':' '{' 
-            IdentVarfuncCham ':' '{' (LOOP)*  IdentVarfuncCham '.' IdentVarfuncCham 
-            ( '(' ( (IdentVarfuncCham | STRING) ('+' (IdentVarfuncCham | STRING)+ )* )* ')')+ (INSTRUCAO_PARAEXECUCAO)?
-            '}'  
+        : 'MODO' 'DE' 'PREPARO' ':' (instrucoes_preparacao)+
         ;
 
-LOOP /*Regra definida para detectar algum loop da linguagem receitaHTML*/
-    : ('ATE' STRING)
+
+instrucoes_preparacao
+        : IdentVarfuncCham ':' '{'
+                ('ATE' STRING chamada_utensilio)? (chamada_utensilio)*  (INSTRUCAO_PARAEXECUCAO)?
+            '}'
+        ;
+
+chamada_utensilio
+    :   (STRING IdentVarfuncCham STRING)?
+            IdentVarfuncCham '.' IdentVarfuncCham 
+        ( '(' ( (IdentVarfuncCham | STRING) ('+' (IdentVarfuncCham | STRING)+ )* )* ')' )+
     ;

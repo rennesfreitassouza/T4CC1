@@ -100,6 +100,18 @@ public class receitaHTMLsintaticoBaseListener implements receitaHTMLsintaticoLis
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterFaz_o_que(receitaHTMLsintaticoParser.Faz_o_queContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFaz_o_que(receitaHTMLsintaticoParser.Faz_o_queContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterIngredientes(receitaHTMLsintaticoParser.IngredientesContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -131,6 +143,30 @@ public class receitaHTMLsintaticoBaseListener implements receitaHTMLsintaticoLis
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitModo_de_preparo(receitaHTMLsintaticoParser.Modo_de_preparoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterInstrucoes_preparacao(receitaHTMLsintaticoParser.Instrucoes_preparacaoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitInstrucoes_preparacao(receitaHTMLsintaticoParser.Instrucoes_preparacaoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterChamada_utensilio(receitaHTMLsintaticoParser.Chamada_utensilioContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitChamada_utensilio(receitaHTMLsintaticoParser.Chamada_utensilioContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

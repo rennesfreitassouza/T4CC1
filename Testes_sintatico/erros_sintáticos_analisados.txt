@@ -1,0 +1,5 @@
+-titulo sem a palavra reservada "NOME";
+-identificação de um utensilio que não faz nada;
+-uma definição de ingrediente em que o nome do ingrediente não é definido;
+-um passo do modo de preparo sem a abertura de chaves '{
+-parêntesis não aberto.

@@ -14,13 +14,9 @@ public class MeuErrorListener extends BaseErrorListener {
     }
       
       
-//      @Override
-//      public void syntaxError(Recognizer<?,?> recognizer, Object offendingSymbol, int line, int charPositionInLine, String msg, RecognitionException e) {
-//      // Seu código aqui
-//      System.out.println("Erro sintático identificado.");
-//      int indexMenorQue = msg.lastIndexOf("<", msg.length() - 1);
-//      int indexMaiorQue = msg.lastIndexOf(">");
-//      pw.println("Linha "+line+": erro sintático proximo a "+msg.substring(indexMenorQue + 1, indexMaiorQue));
-//      
-//   } 
+      @Override
+      public void syntaxError(Recognizer<?,?> recognizer, Object offendingSymbol, int line, int charPositionInLine, String msg, RecognitionException e) {
+      System.out.println("Erro identificado.");
+      pw.println("Erro identificado:"+msg);
+   } 
 }

@@ -1,4 +1,4 @@
 Erros léxicos analisados:
-- símbolo não identificado
 - cometário com apenas uma barra.
 - cadeia não fechada.
+- símbolo não identificado

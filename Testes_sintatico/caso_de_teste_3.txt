@@ -1,0 +1,78 @@
+NOME: "Bolo de cenoura sem glúten"
+DESCRICAO: "Bolo de cenoura sem glutén"
+RENDIMENTO: "10 porções"
+TEMPO DE PREPARO: "40 minutos"
+
+UTENSILIOS: // Serão formatados de acordo com a linguagem receitaHTML
+- blender = "liquidificador" {
+    * beat = "Bata no"
+    
+}
+- bowl = "tigela"{
+    * reservar = "reserve o conteúdo em uma"
+    * coloque = "coloque na"
+}
+- forma = "forma"{
+    * coloque = "coloque na"
+}
+- colher = "colher"{
+    * espalhe = "espalhe com a"
+}
+- forno = "forno"{
+    * pre_aqueca = "pré aqueça o"
+    * leve_ao = "leve ao"
+}
+
+INGREDIENTES: //Serão formatados de acordo com a linguagem receitaHTML
+- ovo = "3 ovos caipira"
+- oleo = "1/4 xícara (chá) de óleo de coco"
+- adocOUacucar = "4 colheres (sopa) de adoçante culinário ou açúcar demerara"
+- agua = "1/2 xícara (chá) de água"
+- cenoura = "2 xícaras (chá) de cenoura picada"
+- aveia = "1/2 xícara (chá) de aveia"
+- farinha = "1/2 xícara (chá) de farinha de coco ou de arroz"
+- cacau = "4 colheres (sopa) de cacau em pó"
+-  = "1 colher (sopa) de fermento em pó"
+- chocolate = "Chocolate 70% picado a gosto"
+
+MODO DE PREPARO: //Serão formados de acordo com a ordem que foram chamados.
+i1: {
+    ATE "virar um creme"
+        blender.beat(ovo + oleo + adocOUacucar + agua + cenoura)
+    bowl.reservar()
+}
+
+i2: {
+    bowl.coloque(farinha + "creme" + aveia)
+    MISTURE_BEM
+}
+
+i3: {
+    bowl.coloque("creme" + fermento)
+    MISTURE_DEVAGAR
+}
+
+i4: {
+    "unte a" forma "com óleo de coco" 
+    forma.coloque("metade da massa do passo anterior")
+    ESPALHE_BEM
+}
+
+i5: {
+    bowl.coloque("a outra metade da massa" + cacau)
+    MISTURE_BEM
+}
+
+i6: {
+    forma.coloque("o resultado do passo anterior sobre a massa de cenoura")
+    colher.espalhe()
+}
+
+i7: {
+    forma.coloque(chocolate + "resultado do passo anterior")
+}
+
+i8: {
+    forno.pre_aqueca()
+    forno.leve_ao("o resultado do passo anterior e deixe por 30 minutos a 180 graus")
+}

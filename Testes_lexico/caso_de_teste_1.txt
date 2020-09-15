@@ -13,14 +13,14 @@ UTENSILIOS: // Serão formatados de acordo com a linguagem receitaHTML
     * coloque = "coloque na"
 }
 - forma = "forma"{
-    - coloque = "coloque na"
+    * coloque = "coloque na"
 }
 - colher = "colher"{
-    - espalhe = "espalhe com a"
+    * espalhe = "espalhe com a"
 }
 - forno = "forno"{
-    - pre_aqueca = "pré aqueça o"
-    - leve_ao = "leve ao"
+    * pre_aqueca = "pré aqueça o"
+    * leve_ao = "leve ao"
 }
 
 INGREDIENTES: //Serão formatados de acordo com a linguagem receitaHTML
