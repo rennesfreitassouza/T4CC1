@@ -74,5 +74,7 @@ public class Principal {
         
         pr.close();
         arquivo.close();
+        
+        //Análise semantica começa a partir daqui.
     }
 }

@@ -138,6 +138,11 @@ public class receitaHTMLsintaticoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof receitaHTMLsintaticoListener ) ((receitaHTMLsintaticoListener)listener).exitReceita(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof receitaHTMLsintaticoVisitor ) return ((receitaHTMLsintaticoVisitor<? extends T>)visitor).visitReceita(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ReceitaContext receita() throws RecognitionException {
@@ -189,6 +194,11 @@ public class receitaHTMLsintaticoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof receitaHTMLsintaticoListener ) ((receitaHTMLsintaticoListener)listener).exitTitulo(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof receitaHTMLsintaticoVisitor ) return ((receitaHTMLsintaticoVisitor<? extends T>)visitor).visitTitulo(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final TituloContext titulo() throws RecognitionException {
@@ -229,6 +239,11 @@ public class receitaHTMLsintaticoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof receitaHTMLsintaticoListener ) ((receitaHTMLsintaticoListener)listener).exitDescricao(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof receitaHTMLsintaticoVisitor ) return ((receitaHTMLsintaticoVisitor<? extends T>)visitor).visitDescricao(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -271,6 +286,11 @@ public class receitaHTMLsintaticoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof receitaHTMLsintaticoListener ) ((receitaHTMLsintaticoListener)listener).exitRendimento(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof receitaHTMLsintaticoVisitor ) return ((receitaHTMLsintaticoVisitor<? extends T>)visitor).visitRendimento(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final RendimentoContext rendimento() throws RecognitionException {
@@ -311,6 +331,11 @@ public class receitaHTMLsintaticoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof receitaHTMLsintaticoListener ) ((receitaHTMLsintaticoListener)listener).exitTempo_de_preparo(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof receitaHTMLsintaticoVisitor ) return ((receitaHTMLsintaticoVisitor<? extends T>)visitor).visitTempo_de_preparo(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -361,6 +386,11 @@ public class receitaHTMLsintaticoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof receitaHTMLsintaticoListener ) ((receitaHTMLsintaticoListener)listener).exitUtensilios(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof receitaHTMLsintaticoVisitor ) return ((receitaHTMLsintaticoVisitor<? extends T>)visitor).visitUtensilios(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -422,6 +452,11 @@ public class receitaHTMLsintaticoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof receitaHTMLsintaticoListener ) ((receitaHTMLsintaticoListener)listener).exitUtensilio(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof receitaHTMLsintaticoVisitor ) return ((receitaHTMLsintaticoVisitor<? extends T>)visitor).visitUtensilio(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -486,6 +521,11 @@ public class receitaHTMLsintaticoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof receitaHTMLsintaticoListener ) ((receitaHTMLsintaticoListener)listener).exitFaz_o_que(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof receitaHTMLsintaticoVisitor ) return ((receitaHTMLsintaticoVisitor<? extends T>)visitor).visitFaz_o_que(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final Faz_o_queContext faz_o_que() throws RecognitionException {
@@ -533,6 +573,11 @@ public class receitaHTMLsintaticoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof receitaHTMLsintaticoListener ) ((receitaHTMLsintaticoListener)listener).exitIngredientes(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof receitaHTMLsintaticoVisitor ) return ((receitaHTMLsintaticoVisitor<? extends T>)visitor).visitIngredientes(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -589,6 +634,11 @@ public class receitaHTMLsintaticoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof receitaHTMLsintaticoListener ) ((receitaHTMLsintaticoListener)listener).exitIngrediente(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof receitaHTMLsintaticoVisitor ) return ((receitaHTMLsintaticoVisitor<? extends T>)visitor).visitIngrediente(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final IngredienteContext ingrediente() throws RecognitionException {
@@ -636,6 +686,11 @@ public class receitaHTMLsintaticoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof receitaHTMLsintaticoListener ) ((receitaHTMLsintaticoListener)listener).exitModo_de_preparo(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof receitaHTMLsintaticoVisitor ) return ((receitaHTMLsintaticoVisitor<? extends T>)visitor).visitModo_de_preparo(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -702,6 +757,11 @@ public class receitaHTMLsintaticoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof receitaHTMLsintaticoListener ) ((receitaHTMLsintaticoListener)listener).exitInstrucoes_preparacao(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof receitaHTMLsintaticoVisitor ) return ((receitaHTMLsintaticoVisitor<? extends T>)visitor).visitInstrucoes_preparacao(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -791,6 +851,11 @@ public class receitaHTMLsintaticoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof receitaHTMLsintaticoListener ) ((receitaHTMLsintaticoListener)listener).exitChamada_utensilio(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof receitaHTMLsintaticoVisitor ) return ((receitaHTMLsintaticoVisitor<? extends T>)visitor).visitChamada_utensilio(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
