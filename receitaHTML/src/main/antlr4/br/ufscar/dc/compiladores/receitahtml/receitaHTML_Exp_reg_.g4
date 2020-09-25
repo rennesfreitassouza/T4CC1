@@ -14,7 +14,7 @@ INSTRUCAO_PARAEXECUCAO
     : ('A'..'Z')+ ('_') ('A'..'Z')*
     ;
 
-IdentVarfuncCham /*Expressão regular definida para reconhecer identificadores (nomes de variáveis, nomes de funções e identificadores de chamadas de funções).*/
+IDENTIFICADOR /*Expressão regular definida para reconhecer identificadores (nomes de variáveis, nomes de funções e identificadores de chamadas de funções).*/
     : ('a'..'z' | 'A'..'Z')('a'..'z' | 'A'..'Z' | '_' | '0'..'9')*
     ;
 
@@ -62,16 +62,16 @@ tempo_de_preparo /*Regra definida para reconhecer o padrão de formação de um 
         : 'TEMPO' 'DE' 'PREPARO' ':' STRING
         ;
 
-utensilios /*Regra definida para reconhecer o padrão de formação de um ou vários utensílios na linguagem receitaHTML.*/
+utensilios /*Regra definida para reconhecer o padrão de formação de nenhum, um ou vários utensílios na linguagem receitaHTML.*/
         : 'UTENSILIOS' ':' (utensilio)*
         ;
 
 utensilio /*Regra definida para reconhecer o padrão de formação de um utensílio na linguagem receitaHTML.*/
-        : '-' IdentVarfuncCham '=' STRING '{' (faz_o_que)+ '}'
+        : '-' IDENTIFICADOR '=' STRING '{' (faz_o_que)+ '}'
         ;
 
 faz_o_que /*Regra definida para reconhecer o padrão de formação de definição do que um utensílio faz.*/
-        : '*' IdentVarfuncCham '=' STRING
+        : '*' IDENTIFICADOR '=' STRING
         ;
 
 ingredientes /*Regra definida para reconhecer o padrão de formação de um ou vários ingredientes na linguagem receitaHTML.*/
@@ -79,7 +79,7 @@ ingredientes /*Regra definida para reconhecer o padrão de formação de um ou v
         ;
 
 ingrediente /*Regra definida para reconhecer o padrão de formação de um ingrediente na linguagem receitaHTML.*/
-        : '-' IdentVarfuncCham '=' STRING
+        : '-' IDENTIFICADOR '=' STRING
         ;
 
 modo_de_preparo /*Regra definida para reconhecer o padrão de formação do modo de preparo na linguagem receitaHTML.*/
@@ -87,14 +87,26 @@ modo_de_preparo /*Regra definida para reconhecer o padrão de formação do modo
         ;
 
 
-instrucoes_preparacao
-        : IdentVarfuncCham ':' '{'
-                ('ATE' STRING chamada_utensilio)? (chamada_utensilio)*  (INSTRUCAO_PARAEXECUCAO)?
+instrucoes_preparacao /*Regra definida para reconhecer o padrão de formação das instruções de preparação de uma receita escrita na linguagem receitaHTML.*/
+        : IDENTIFICADOR ':' '{'
+                (condicional_ate)? (chamada_utensilio)+  (INSTRUCAO_PARAEXECUCAO)?
             '}'
         ;
 
-chamada_utensilio
-    :   (STRING IdentVarfuncCham STRING)?
-            IdentVarfuncCham '.' IdentVarfuncCham 
-        ( '(' ( (IdentVarfuncCham | STRING) ('+' (IdentVarfuncCham | STRING)+ )* )* ')' )+
+chamada_utensilio /*Regra definida para reconhecer o padrão de formação de uma chamada a uma função e de sua respectiva subfunção.*/
+    :   (instrucao_para_utensilio)?
+            identificador_utensilio=IDENTIFICADOR '.' identificador_funcao_utensilio=IDENTIFICADOR 
+                '(' (parametro ('+' parametro)*)? ')'
+    ;
+
+parametro /*Regra definida para reconhecer os dois padrões de formação de um possível parâmetro da linguagem receitaHTML.*/
+    :
+        IDENTIFICADOR | STRING
+    ;
+condicional_ate /*Regra definida para reconhecer o padrão de formação de um condicional ATE da linguagem receitaHTML.*/
+    : 'ATE' STRING chamada_utensilio
+    ;
+
+instrucao_para_utensilio /*Regra definida para reconhecer o padrão de formação de uma instrução para um utensílio que não foi definida e precisa ser escrita para que a receita esteja completa.*/
+    : STRING IDENTIFICADOR (STRING)?
     ;

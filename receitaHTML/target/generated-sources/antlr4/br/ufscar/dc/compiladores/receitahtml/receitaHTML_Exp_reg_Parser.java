@@ -20,18 +20,20 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
 		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, T__15=16, T__16=17, 
 		T__17=18, T__18=19, T__19=20, PALAVRAS_RESERVADAS=21, NUM_INT=22, INSTRUCAO_PARAEXECUCAO=23, 
-		IdentVarfuncCham=24, STRING=25, CARACTERESIGNORADOS=26, COMENTARIO=27, 
-		COMENTARIOSEMBARRA=28, CADEIANFECHADA=29, ErrorCharacter=30;
+		IDENTIFICADOR=24, STRING=25, CARACTERESIGNORADOS=26, COMENTARIO=27, COMENTARIOSEMBARRA=28, 
+		CADEIANFECHADA=29, ErrorCharacter=30;
 	public static final int
 		RULE_receita = 0, RULE_titulo = 1, RULE_descricao = 2, RULE_rendimento = 3, 
 		RULE_tempo_de_preparo = 4, RULE_utensilios = 5, RULE_utensilio = 6, RULE_faz_o_que = 7, 
 		RULE_ingredientes = 8, RULE_ingrediente = 9, RULE_modo_de_preparo = 10, 
-		RULE_instrucoes_preparacao = 11, RULE_chamada_utensilio = 12;
+		RULE_instrucoes_preparacao = 11, RULE_chamada_utensilio = 12, RULE_parametro = 13, 
+		RULE_condicional_ate = 14, RULE_instrucao_para_utensilio = 15;
 	private static String[] makeRuleNames() {
 		return new String[] {
 			"receita", "titulo", "descricao", "rendimento", "tempo_de_preparo", "utensilios", 
 			"utensilio", "faz_o_que", "ingredientes", "ingrediente", "modo_de_preparo", 
-			"instrucoes_preparacao", "chamada_utensilio"
+			"instrucoes_preparacao", "chamada_utensilio", "parametro", "condicional_ate", 
+			"instrucao_para_utensilio"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -40,7 +42,7 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		return new String[] {
 			null, "'NOME'", "':'", "'DESCRICAO'", "'RENDIMENTO'", "'TEMPO'", "'DE'", 
 			"'PREPARO'", "'UTENSILIOS'", "'-'", "'='", "'{'", "'}'", "'*'", "'INGREDIENTES'", 
-			"'MODO'", "'ATE'", "'.'", "'('", "'+'", "')'"
+			"'MODO'", "'.'", "'('", "'+'", "')'", "'ATE'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
@@ -48,7 +50,7 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		return new String[] {
 			null, null, null, null, null, null, null, null, null, null, null, null, 
 			null, null, null, null, null, null, null, null, null, "PALAVRAS_RESERVADAS", 
-			"NUM_INT", "INSTRUCAO_PARAEXECUCAO", "IdentVarfuncCham", "STRING", "CARACTERESIGNORADOS", 
+			"NUM_INT", "INSTRUCAO_PARAEXECUCAO", "IDENTIFICADOR", "STRING", "CARACTERESIGNORADOS", 
 			"COMENTARIO", "COMENTARIOSEMBARRA", "CADEIANFECHADA", "ErrorCharacter"
 		};
 	}
@@ -151,21 +153,21 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(26);
-			titulo();
-			setState(27);
-			descricao();
-			setState(28);
-			rendimento();
-			setState(29);
-			tempo_de_preparo();
-			setState(30);
-			utensilios();
-			setState(31);
-			ingredientes();
 			setState(32);
-			modo_de_preparo();
+			titulo();
 			setState(33);
+			descricao();
+			setState(34);
+			rendimento();
+			setState(35);
+			tempo_de_preparo();
+			setState(36);
+			utensilios();
+			setState(37);
+			ingredientes();
+			setState(38);
+			modo_de_preparo();
+			setState(39);
 			match(EOF);
 			}
 		}
@@ -207,11 +209,11 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(35);
+			setState(41);
 			match(T__0);
-			setState(36);
+			setState(42);
 			match(T__1);
-			setState(37);
+			setState(43);
 			match(STRING);
 			}
 		}
@@ -253,11 +255,11 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(39);
+			setState(45);
 			match(T__2);
-			setState(40);
+			setState(46);
 			match(T__1);
-			setState(41);
+			setState(47);
 			match(STRING);
 			}
 		}
@@ -299,11 +301,11 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(43);
+			setState(49);
 			match(T__3);
-			setState(44);
+			setState(50);
 			match(T__1);
-			setState(45);
+			setState(51);
 			match(STRING);
 			}
 		}
@@ -345,15 +347,15 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(47);
+			setState(53);
 			match(T__4);
-			setState(48);
+			setState(54);
 			match(T__5);
-			setState(49);
+			setState(55);
 			match(T__6);
-			setState(50);
+			setState(56);
 			match(T__1);
-			setState(51);
+			setState(57);
 			match(STRING);
 			}
 		}
@@ -401,21 +403,21 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(53);
+			setState(59);
 			match(T__7);
-			setState(54);
+			setState(60);
 			match(T__1);
-			setState(58);
+			setState(64);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==T__8) {
 				{
 				{
-				setState(55);
+				setState(61);
 				utensilio();
 				}
 				}
-				setState(60);
+				setState(66);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -433,7 +435,7 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 	}
 
 	public static class UtensilioContext extends ParserRuleContext {
-		public TerminalNode IdentVarfuncCham() { return getToken(receitaHTML_Exp_reg_Parser.IdentVarfuncCham, 0); }
+		public TerminalNode IDENTIFICADOR() { return getToken(receitaHTML_Exp_reg_Parser.IDENTIFICADOR, 0); }
 		public TerminalNode STRING() { return getToken(receitaHTML_Exp_reg_Parser.STRING, 0); }
 		public List<Faz_o_queContext> faz_o_que() {
 			return getRuleContexts(Faz_o_queContext.class);
@@ -467,31 +469,31 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(61);
+			setState(67);
 			match(T__8);
-			setState(62);
-			match(IdentVarfuncCham);
-			setState(63);
+			setState(68);
+			match(IDENTIFICADOR);
+			setState(69);
 			match(T__9);
-			setState(64);
+			setState(70);
 			match(STRING);
-			setState(65);
+			setState(71);
 			match(T__10);
-			setState(67); 
+			setState(73); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(66);
+				setState(72);
 				faz_o_que();
 				}
 				}
-				setState(69); 
+				setState(75); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==T__12 );
-			setState(71);
+			setState(77);
 			match(T__11);
 			}
 		}
@@ -507,7 +509,7 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 	}
 
 	public static class Faz_o_queContext extends ParserRuleContext {
-		public TerminalNode IdentVarfuncCham() { return getToken(receitaHTML_Exp_reg_Parser.IdentVarfuncCham, 0); }
+		public TerminalNode IDENTIFICADOR() { return getToken(receitaHTML_Exp_reg_Parser.IDENTIFICADOR, 0); }
 		public TerminalNode STRING() { return getToken(receitaHTML_Exp_reg_Parser.STRING, 0); }
 		public Faz_o_queContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -534,13 +536,13 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(73);
+			setState(79);
 			match(T__12);
-			setState(74);
-			match(IdentVarfuncCham);
-			setState(75);
+			setState(80);
+			match(IDENTIFICADOR);
+			setState(81);
 			match(T__9);
-			setState(76);
+			setState(82);
 			match(STRING);
 			}
 		}
@@ -588,21 +590,21 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(78);
+			setState(84);
 			match(T__13);
-			setState(79);
+			setState(85);
 			match(T__1);
-			setState(81); 
+			setState(87); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(80);
+				setState(86);
 				ingrediente();
 				}
 				}
-				setState(83); 
+				setState(89); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==T__8 );
@@ -620,7 +622,7 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 	}
 
 	public static class IngredienteContext extends ParserRuleContext {
-		public TerminalNode IdentVarfuncCham() { return getToken(receitaHTML_Exp_reg_Parser.IdentVarfuncCham, 0); }
+		public TerminalNode IDENTIFICADOR() { return getToken(receitaHTML_Exp_reg_Parser.IDENTIFICADOR, 0); }
 		public TerminalNode STRING() { return getToken(receitaHTML_Exp_reg_Parser.STRING, 0); }
 		public IngredienteContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -647,13 +649,13 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(85);
+			setState(91);
 			match(T__8);
-			setState(86);
-			match(IdentVarfuncCham);
-			setState(87);
+			setState(92);
+			match(IDENTIFICADOR);
+			setState(93);
 			match(T__9);
-			setState(88);
+			setState(94);
 			match(STRING);
 			}
 		}
@@ -701,28 +703,28 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(90);
+			setState(96);
 			match(T__14);
-			setState(91);
+			setState(97);
 			match(T__5);
-			setState(92);
+			setState(98);
 			match(T__6);
-			setState(93);
+			setState(99);
 			match(T__1);
-			setState(95); 
+			setState(101); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(94);
+				setState(100);
 				instrucoes_preparacao();
 				}
 				}
-				setState(97); 
+				setState(103); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( _la==IdentVarfuncCham );
+			} while ( _la==IDENTIFICADOR );
 			}
 		}
 		catch (RecognitionException re) {
@@ -737,8 +739,10 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 	}
 
 	public static class Instrucoes_preparacaoContext extends ParserRuleContext {
-		public TerminalNode IdentVarfuncCham() { return getToken(receitaHTML_Exp_reg_Parser.IdentVarfuncCham, 0); }
-		public TerminalNode STRING() { return getToken(receitaHTML_Exp_reg_Parser.STRING, 0); }
+		public TerminalNode IDENTIFICADOR() { return getToken(receitaHTML_Exp_reg_Parser.IDENTIFICADOR, 0); }
+		public Condicional_ateContext condicional_ate() {
+			return getRuleContext(Condicional_ateContext.class,0);
+		}
 		public List<Chamada_utensilioContext> chamada_utensilio() {
 			return getRuleContexts(Chamada_utensilioContext.class);
 		}
@@ -772,51 +776,47 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(99);
-			match(IdentVarfuncCham);
-			setState(100);
-			match(T__1);
-			setState(101);
-			match(T__10);
 			setState(105);
+			match(IDENTIFICADOR);
+			setState(106);
+			match(T__1);
+			setState(107);
+			match(T__10);
+			setState(109);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if (_la==T__15) {
+			if (_la==T__19) {
 				{
-				setState(102);
-				match(T__15);
-				setState(103);
-				match(STRING);
-				setState(104);
-				chamada_utensilio();
+				setState(108);
+				condicional_ate();
 				}
 			}
 
-			setState(110);
+			setState(112); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while (_la==IdentVarfuncCham || _la==STRING) {
+			do {
 				{
 				{
-				setState(107);
+				setState(111);
 				chamada_utensilio();
 				}
 				}
-				setState(112);
+				setState(114); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			}
-			setState(114);
+			} while ( _la==IDENTIFICADOR || _la==STRING );
+			setState(117);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==INSTRUCAO_PARAEXECUCAO) {
 				{
-				setState(113);
+				setState(116);
 				match(INSTRUCAO_PARAEXECUCAO);
 				}
 			}
 
-			setState(116);
+			setState(119);
 			match(T__11);
 			}
 		}
@@ -832,13 +832,20 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 	}
 
 	public static class Chamada_utensilioContext extends ParserRuleContext {
-		public List<TerminalNode> IdentVarfuncCham() { return getTokens(receitaHTML_Exp_reg_Parser.IdentVarfuncCham); }
-		public TerminalNode IdentVarfuncCham(int i) {
-			return getToken(receitaHTML_Exp_reg_Parser.IdentVarfuncCham, i);
+		public Token identificador_utensilio;
+		public Token identificador_funcao_utensilio;
+		public List<TerminalNode> IDENTIFICADOR() { return getTokens(receitaHTML_Exp_reg_Parser.IDENTIFICADOR); }
+		public TerminalNode IDENTIFICADOR(int i) {
+			return getToken(receitaHTML_Exp_reg_Parser.IDENTIFICADOR, i);
 		}
-		public List<TerminalNode> STRING() { return getTokens(receitaHTML_Exp_reg_Parser.STRING); }
-		public TerminalNode STRING(int i) {
-			return getToken(receitaHTML_Exp_reg_Parser.STRING, i);
+		public Instrucao_para_utensilioContext instrucao_para_utensilio() {
+			return getRuleContext(Instrucao_para_utensilioContext.class,0);
+		}
+		public List<ParametroContext> parametro() {
+			return getRuleContexts(ParametroContext.class);
+		}
+		public ParametroContext parametro(int i) {
+			return getRuleContext(ParametroContext.class,i);
 		}
 		public Chamada_utensilioContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -864,109 +871,214 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		enterRule(_localctx, 24, RULE_chamada_utensilio);
 		int _la;
 		try {
-			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(121);
+			setState(122);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==STRING) {
 				{
-				setState(118);
-				match(STRING);
-				setState(119);
-				match(IdentVarfuncCham);
-				setState(120);
+				setState(121);
+				instrucao_para_utensilio();
+				}
+			}
+
+			setState(124);
+			((Chamada_utensilioContext)_localctx).identificador_utensilio = match(IDENTIFICADOR);
+			setState(125);
+			match(T__15);
+			setState(126);
+			((Chamada_utensilioContext)_localctx).identificador_funcao_utensilio = match(IDENTIFICADOR);
+			setState(127);
+			match(T__16);
+			setState(136);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if (_la==IDENTIFICADOR || _la==STRING) {
+				{
+				setState(128);
+				parametro();
+				setState(133);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				while (_la==T__17) {
+					{
+					{
+					setState(129);
+					match(T__17);
+					setState(130);
+					parametro();
+					}
+					}
+					setState(135);
+					_errHandler.sync(this);
+					_la = _input.LA(1);
+				}
+				}
+			}
+
+			setState(138);
+			match(T__18);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class ParametroContext extends ParserRuleContext {
+		public TerminalNode IDENTIFICADOR() { return getToken(receitaHTML_Exp_reg_Parser.IDENTIFICADOR, 0); }
+		public TerminalNode STRING() { return getToken(receitaHTML_Exp_reg_Parser.STRING, 0); }
+		public ParametroContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_parametro; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof receitaHTML_Exp_reg_Listener ) ((receitaHTML_Exp_reg_Listener)listener).enterParametro(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof receitaHTML_Exp_reg_Listener ) ((receitaHTML_Exp_reg_Listener)listener).exitParametro(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof receitaHTML_Exp_reg_Visitor ) return ((receitaHTML_Exp_reg_Visitor<? extends T>)visitor).visitParametro(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final ParametroContext parametro() throws RecognitionException {
+		ParametroContext _localctx = new ParametroContext(_ctx, getState());
+		enterRule(_localctx, 26, RULE_parametro);
+		int _la;
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(140);
+			_la = _input.LA(1);
+			if ( !(_la==IDENTIFICADOR || _la==STRING) ) {
+			_errHandler.recoverInline(this);
+			}
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
+				consume();
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Condicional_ateContext extends ParserRuleContext {
+		public TerminalNode STRING() { return getToken(receitaHTML_Exp_reg_Parser.STRING, 0); }
+		public Chamada_utensilioContext chamada_utensilio() {
+			return getRuleContext(Chamada_utensilioContext.class,0);
+		}
+		public Condicional_ateContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_condicional_ate; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof receitaHTML_Exp_reg_Listener ) ((receitaHTML_Exp_reg_Listener)listener).enterCondicional_ate(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof receitaHTML_Exp_reg_Listener ) ((receitaHTML_Exp_reg_Listener)listener).exitCondicional_ate(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof receitaHTML_Exp_reg_Visitor ) return ((receitaHTML_Exp_reg_Visitor<? extends T>)visitor).visitCondicional_ate(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final Condicional_ateContext condicional_ate() throws RecognitionException {
+		Condicional_ateContext _localctx = new Condicional_ateContext(_ctx, getState());
+		enterRule(_localctx, 28, RULE_condicional_ate);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(142);
+			match(T__19);
+			setState(143);
+			match(STRING);
+			setState(144);
+			chamada_utensilio();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Instrucao_para_utensilioContext extends ParserRuleContext {
+		public List<TerminalNode> STRING() { return getTokens(receitaHTML_Exp_reg_Parser.STRING); }
+		public TerminalNode STRING(int i) {
+			return getToken(receitaHTML_Exp_reg_Parser.STRING, i);
+		}
+		public TerminalNode IDENTIFICADOR() { return getToken(receitaHTML_Exp_reg_Parser.IDENTIFICADOR, 0); }
+		public Instrucao_para_utensilioContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_instrucao_para_utensilio; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof receitaHTML_Exp_reg_Listener ) ((receitaHTML_Exp_reg_Listener)listener).enterInstrucao_para_utensilio(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof receitaHTML_Exp_reg_Listener ) ((receitaHTML_Exp_reg_Listener)listener).exitInstrucao_para_utensilio(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof receitaHTML_Exp_reg_Visitor ) return ((receitaHTML_Exp_reg_Visitor<? extends T>)visitor).visitInstrucao_para_utensilio(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final Instrucao_para_utensilioContext instrucao_para_utensilio() throws RecognitionException {
+		Instrucao_para_utensilioContext _localctx = new Instrucao_para_utensilioContext(_ctx, getState());
+		enterRule(_localctx, 30, RULE_instrucao_para_utensilio);
+		int _la;
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(146);
+			match(STRING);
+			setState(147);
+			match(IDENTIFICADOR);
+			setState(149);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if (_la==STRING) {
+				{
+				setState(148);
 				match(STRING);
 				}
 			}
 
-			setState(123);
-			match(IdentVarfuncCham);
-			setState(124);
-			match(T__16);
-			setState(125);
-			match(IdentVarfuncCham);
-			setState(145); 
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			do {
-				{
-				{
-				setState(126);
-				match(T__17);
-				setState(141);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				while (_la==IdentVarfuncCham || _la==STRING) {
-					{
-					{
-					setState(127);
-					_la = _input.LA(1);
-					if ( !(_la==IdentVarfuncCham || _la==STRING) ) {
-					_errHandler.recoverInline(this);
-					}
-					else {
-						if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-						_errHandler.reportMatch(this);
-						consume();
-					}
-					setState(136);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-					while (_la==T__18) {
-						{
-						{
-						setState(128);
-						match(T__18);
-						setState(130); 
-						_errHandler.sync(this);
-						_alt = 1;
-						do {
-							switch (_alt) {
-							case 1:
-								{
-								{
-								setState(129);
-								_la = _input.LA(1);
-								if ( !(_la==IdentVarfuncCham || _la==STRING) ) {
-								_errHandler.recoverInline(this);
-								}
-								else {
-									if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-									_errHandler.reportMatch(this);
-									consume();
-								}
-								}
-								}
-								break;
-							default:
-								throw new NoViableAltException(this);
-							}
-							setState(132); 
-							_errHandler.sync(this);
-							_alt = getInterpreter().adaptivePredict(_input,8,_ctx);
-						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
-						}
-						}
-						setState(138);
-						_errHandler.sync(this);
-						_la = _input.LA(1);
-					}
-					}
-					}
-					setState(143);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-				}
-				setState(144);
-				match(T__19);
-				}
-				}
-				setState(147); 
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			} while ( _la==T__17 );
 			}
 		}
 		catch (RecognitionException re) {
@@ -981,46 +1093,46 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3 \u0098\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3 \u009a\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
-		"\13\4\f\t\f\4\r\t\r\4\16\t\16\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\3"+
-		"\3\3\3\3\3\3\3\4\3\4\3\4\3\4\3\5\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\3\6\3"+
-		"\7\3\7\3\7\7\7;\n\7\f\7\16\7>\13\7\3\b\3\b\3\b\3\b\3\b\3\b\6\bF\n\b\r"+
-		"\b\16\bG\3\b\3\b\3\t\3\t\3\t\3\t\3\t\3\n\3\n\3\n\6\nT\n\n\r\n\16\nU\3"+
-		"\13\3\13\3\13\3\13\3\13\3\f\3\f\3\f\3\f\3\f\6\fb\n\f\r\f\16\fc\3\r\3\r"+
-		"\3\r\3\r\3\r\3\r\5\rl\n\r\3\r\7\ro\n\r\f\r\16\rr\13\r\3\r\5\ru\n\r\3\r"+
-		"\3\r\3\16\3\16\3\16\5\16|\n\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\6\16"+
-		"\u0085\n\16\r\16\16\16\u0086\7\16\u0089\n\16\f\16\16\16\u008c\13\16\7"+
-		"\16\u008e\n\16\f\16\16\16\u0091\13\16\3\16\6\16\u0094\n\16\r\16\16\16"+
-		"\u0095\3\16\2\2\17\2\4\6\b\n\f\16\20\22\24\26\30\32\2\3\3\2\32\33\2\u0096"+
-		"\2\34\3\2\2\2\4%\3\2\2\2\6)\3\2\2\2\b-\3\2\2\2\n\61\3\2\2\2\f\67\3\2\2"+
-		"\2\16?\3\2\2\2\20K\3\2\2\2\22P\3\2\2\2\24W\3\2\2\2\26\\\3\2\2\2\30e\3"+
-		"\2\2\2\32{\3\2\2\2\34\35\5\4\3\2\35\36\5\6\4\2\36\37\5\b\5\2\37 \5\n\6"+
-		"\2 !\5\f\7\2!\"\5\22\n\2\"#\5\26\f\2#$\7\2\2\3$\3\3\2\2\2%&\7\3\2\2&\'"+
-		"\7\4\2\2\'(\7\33\2\2(\5\3\2\2\2)*\7\5\2\2*+\7\4\2\2+,\7\33\2\2,\7\3\2"+
-		"\2\2-.\7\6\2\2./\7\4\2\2/\60\7\33\2\2\60\t\3\2\2\2\61\62\7\7\2\2\62\63"+
-		"\7\b\2\2\63\64\7\t\2\2\64\65\7\4\2\2\65\66\7\33\2\2\66\13\3\2\2\2\678"+
-		"\7\n\2\28<\7\4\2\29;\5\16\b\2:9\3\2\2\2;>\3\2\2\2<:\3\2\2\2<=\3\2\2\2"+
-		"=\r\3\2\2\2><\3\2\2\2?@\7\13\2\2@A\7\32\2\2AB\7\f\2\2BC\7\33\2\2CE\7\r"+
-		"\2\2DF\5\20\t\2ED\3\2\2\2FG\3\2\2\2GE\3\2\2\2GH\3\2\2\2HI\3\2\2\2IJ\7"+
-		"\16\2\2J\17\3\2\2\2KL\7\17\2\2LM\7\32\2\2MN\7\f\2\2NO\7\33\2\2O\21\3\2"+
-		"\2\2PQ\7\20\2\2QS\7\4\2\2RT\5\24\13\2SR\3\2\2\2TU\3\2\2\2US\3\2\2\2UV"+
-		"\3\2\2\2V\23\3\2\2\2WX\7\13\2\2XY\7\32\2\2YZ\7\f\2\2Z[\7\33\2\2[\25\3"+
-		"\2\2\2\\]\7\21\2\2]^\7\b\2\2^_\7\t\2\2_a\7\4\2\2`b\5\30\r\2a`\3\2\2\2"+
-		"bc\3\2\2\2ca\3\2\2\2cd\3\2\2\2d\27\3\2\2\2ef\7\32\2\2fg\7\4\2\2gk\7\r"+
-		"\2\2hi\7\22\2\2ij\7\33\2\2jl\5\32\16\2kh\3\2\2\2kl\3\2\2\2lp\3\2\2\2m"+
-		"o\5\32\16\2nm\3\2\2\2or\3\2\2\2pn\3\2\2\2pq\3\2\2\2qt\3\2\2\2rp\3\2\2"+
-		"\2su\7\31\2\2ts\3\2\2\2tu\3\2\2\2uv\3\2\2\2vw\7\16\2\2w\31\3\2\2\2xy\7"+
-		"\33\2\2yz\7\32\2\2z|\7\33\2\2{x\3\2\2\2{|\3\2\2\2|}\3\2\2\2}~\7\32\2\2"+
-		"~\177\7\23\2\2\177\u0093\7\32\2\2\u0080\u008f\7\24\2\2\u0081\u008a\t\2"+
-		"\2\2\u0082\u0084\7\25\2\2\u0083\u0085\t\2\2\2\u0084\u0083\3\2\2\2\u0085"+
-		"\u0086\3\2\2\2\u0086\u0084\3\2\2\2\u0086\u0087\3\2\2\2\u0087\u0089\3\2"+
-		"\2\2\u0088\u0082\3\2\2\2\u0089\u008c\3\2\2\2\u008a\u0088\3\2\2\2\u008a"+
-		"\u008b\3\2\2\2\u008b\u008e\3\2\2\2\u008c\u008a\3\2\2\2\u008d\u0081\3\2"+
-		"\2\2\u008e\u0091\3\2\2\2\u008f\u008d\3\2\2\2\u008f\u0090\3\2\2\2\u0090"+
-		"\u0092\3\2\2\2\u0091\u008f\3\2\2\2\u0092\u0094\7\26\2\2\u0093\u0080\3"+
-		"\2\2\2\u0094\u0095\3\2\2\2\u0095\u0093\3\2\2\2\u0095\u0096\3\2\2\2\u0096"+
-		"\33\3\2\2\2\16<GUckpt{\u0086\u008a\u008f\u0095";
+		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\3\2\3\2\3"+
+		"\2\3\2\3\2\3\2\3\2\3\2\3\2\3\3\3\3\3\3\3\3\3\4\3\4\3\4\3\4\3\5\3\5\3\5"+
+		"\3\5\3\6\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3\7\7\7A\n\7\f\7\16\7D\13\7\3\b\3"+
+		"\b\3\b\3\b\3\b\3\b\6\bL\n\b\r\b\16\bM\3\b\3\b\3\t\3\t\3\t\3\t\3\t\3\n"+
+		"\3\n\3\n\6\nZ\n\n\r\n\16\n[\3\13\3\13\3\13\3\13\3\13\3\f\3\f\3\f\3\f\3"+
+		"\f\6\fh\n\f\r\f\16\fi\3\r\3\r\3\r\3\r\5\rp\n\r\3\r\6\rs\n\r\r\r\16\rt"+
+		"\3\r\5\rx\n\r\3\r\3\r\3\16\5\16}\n\16\3\16\3\16\3\16\3\16\3\16\3\16\3"+
+		"\16\7\16\u0086\n\16\f\16\16\16\u0089\13\16\5\16\u008b\n\16\3\16\3\16\3"+
+		"\17\3\17\3\20\3\20\3\20\3\20\3\21\3\21\3\21\5\21\u0098\n\21\3\21\2\2\22"+
+		"\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \2\3\3\2\32\33\2\u0094\2\"\3\2"+
+		"\2\2\4+\3\2\2\2\6/\3\2\2\2\b\63\3\2\2\2\n\67\3\2\2\2\f=\3\2\2\2\16E\3"+
+		"\2\2\2\20Q\3\2\2\2\22V\3\2\2\2\24]\3\2\2\2\26b\3\2\2\2\30k\3\2\2\2\32"+
+		"|\3\2\2\2\34\u008e\3\2\2\2\36\u0090\3\2\2\2 \u0094\3\2\2\2\"#\5\4\3\2"+
+		"#$\5\6\4\2$%\5\b\5\2%&\5\n\6\2&\'\5\f\7\2\'(\5\22\n\2()\5\26\f\2)*\7\2"+
+		"\2\3*\3\3\2\2\2+,\7\3\2\2,-\7\4\2\2-.\7\33\2\2.\5\3\2\2\2/\60\7\5\2\2"+
+		"\60\61\7\4\2\2\61\62\7\33\2\2\62\7\3\2\2\2\63\64\7\6\2\2\64\65\7\4\2\2"+
+		"\65\66\7\33\2\2\66\t\3\2\2\2\678\7\7\2\289\7\b\2\29:\7\t\2\2:;\7\4\2\2"+
+		";<\7\33\2\2<\13\3\2\2\2=>\7\n\2\2>B\7\4\2\2?A\5\16\b\2@?\3\2\2\2AD\3\2"+
+		"\2\2B@\3\2\2\2BC\3\2\2\2C\r\3\2\2\2DB\3\2\2\2EF\7\13\2\2FG\7\32\2\2GH"+
+		"\7\f\2\2HI\7\33\2\2IK\7\r\2\2JL\5\20\t\2KJ\3\2\2\2LM\3\2\2\2MK\3\2\2\2"+
+		"MN\3\2\2\2NO\3\2\2\2OP\7\16\2\2P\17\3\2\2\2QR\7\17\2\2RS\7\32\2\2ST\7"+
+		"\f\2\2TU\7\33\2\2U\21\3\2\2\2VW\7\20\2\2WY\7\4\2\2XZ\5\24\13\2YX\3\2\2"+
+		"\2Z[\3\2\2\2[Y\3\2\2\2[\\\3\2\2\2\\\23\3\2\2\2]^\7\13\2\2^_\7\32\2\2_"+
+		"`\7\f\2\2`a\7\33\2\2a\25\3\2\2\2bc\7\21\2\2cd\7\b\2\2de\7\t\2\2eg\7\4"+
+		"\2\2fh\5\30\r\2gf\3\2\2\2hi\3\2\2\2ig\3\2\2\2ij\3\2\2\2j\27\3\2\2\2kl"+
+		"\7\32\2\2lm\7\4\2\2mo\7\r\2\2np\5\36\20\2on\3\2\2\2op\3\2\2\2pr\3\2\2"+
+		"\2qs\5\32\16\2rq\3\2\2\2st\3\2\2\2tr\3\2\2\2tu\3\2\2\2uw\3\2\2\2vx\7\31"+
+		"\2\2wv\3\2\2\2wx\3\2\2\2xy\3\2\2\2yz\7\16\2\2z\31\3\2\2\2{}\5 \21\2|{"+
+		"\3\2\2\2|}\3\2\2\2}~\3\2\2\2~\177\7\32\2\2\177\u0080\7\22\2\2\u0080\u0081"+
+		"\7\32\2\2\u0081\u008a\7\23\2\2\u0082\u0087\5\34\17\2\u0083\u0084\7\24"+
+		"\2\2\u0084\u0086\5\34\17\2\u0085\u0083\3\2\2\2\u0086\u0089\3\2\2\2\u0087"+
+		"\u0085\3\2\2\2\u0087\u0088\3\2\2\2\u0088\u008b\3\2\2\2\u0089\u0087\3\2"+
+		"\2\2\u008a\u0082\3\2\2\2\u008a\u008b\3\2\2\2\u008b\u008c\3\2\2\2\u008c"+
+		"\u008d\7\25\2\2\u008d\33\3\2\2\2\u008e\u008f\t\2\2\2\u008f\35\3\2\2\2"+
+		"\u0090\u0091\7\26\2\2\u0091\u0092\7\33\2\2\u0092\u0093\5\32\16\2\u0093"+
+		"\37\3\2\2\2\u0094\u0095\7\33\2\2\u0095\u0097\7\32\2\2\u0096\u0098\7\33"+
+		"\2\2\u0097\u0096\3\2\2\2\u0097\u0098\3\2\2\2\u0098!\3\2\2\2\rBM[iotw|"+
+		"\u0087\u008a\u0097";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

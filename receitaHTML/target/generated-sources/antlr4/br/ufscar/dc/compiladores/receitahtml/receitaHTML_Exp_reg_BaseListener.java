@@ -167,6 +167,42 @@ public class receitaHTML_Exp_reg_BaseListener implements receitaHTML_Exp_reg_Lis
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitChamada_utensilio(receitaHTML_Exp_reg_Parser.Chamada_utensilioContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterParametro(receitaHTML_Exp_reg_Parser.ParametroContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitParametro(receitaHTML_Exp_reg_Parser.ParametroContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCondicional_ate(receitaHTML_Exp_reg_Parser.Condicional_ateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCondicional_ate(receitaHTML_Exp_reg_Parser.Condicional_ateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterInstrucao_para_utensilio(receitaHTML_Exp_reg_Parser.Instrucao_para_utensilioContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitInstrucao_para_utensilio(receitaHTML_Exp_reg_Parser.Instrucao_para_utensilioContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

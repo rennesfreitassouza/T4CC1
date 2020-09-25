@@ -1,9 +1,14 @@
 C:\Users\UsuárioR\Documents\NetBeansProjects\receitaHTML\src\main\java\br\ufscar\dc\compiladores\receitahtml\Principal.java
+C:\Users\UsuárioR\Documents\NetBeansProjects\receitaHTML\src\main\java\br\ufscar\dc\compiladores\receitahtml\TabelaDeSimbolos.java
 C:\Users\UsuárioR\Documents\NetBeansProjects\receitaHTML\target\generated-sources\antlr4\br\ufscar\dc\compiladores\receitahtml\receitaHTML_Exp_reg_Listener.java
-C:\Users\UsuárioR\Documents\NetBeansProjects\receitaHTML\target\generated-sources\antlr4\br\ufscar\dc\compiladores\receitahtml\receitaHTML_Exp_reg_Visitor.java
+C:\Users\UsuárioR\Documents\NetBeansProjects\receitaHTML\src\main\java\br\ufscar\dc\compiladores\receitahtml\receitaHTMLGeradordeHTML.java
 C:\Users\UsuárioR\Documents\NetBeansProjects\receitaHTML\target\generated-sources\antlr4\br\ufscar\dc\compiladores\receitahtml\receitaHTML_Exp_reg_BaseVisitor.java
-C:\Users\UsuárioR\Documents\NetBeansProjects\receitaHTML\target\generated-sources\antlr4\br\ufscar\dc\compiladores\receitahtml\receitaHTML_Exp_reg_Parser.java
 C:\Users\UsuárioR\Documents\NetBeansProjects\receitaHTML\src\main\java\br\ufscar\dc\compiladores\receitahtml\receitaHTMLSemantico.java
 C:\Users\UsuárioR\Documents\NetBeansProjects\receitaHTML\target\generated-sources\antlr4\br\ufscar\dc\compiladores\receitahtml\receitaHTML_Exp_reg_Lexer.java
-C:\Users\UsuárioR\Documents\NetBeansProjects\receitaHTML\src\main\java\br\ufscar\dc\compiladores\receitahtml\MeuErrorListener.java
+C:\Users\UsuárioR\Documents\NetBeansProjects\receitaHTML\src\main\java\br\ufscar\dc\compiladores\receitahtml\EntradaTabelaDeSimbolos.java
+C:\Users\UsuárioR\Documents\NetBeansProjects\receitaHTML\src\main\java\br\ufscar\dc\compiladores\receitahtml\Escopo.java
 C:\Users\UsuárioR\Documents\NetBeansProjects\receitaHTML\target\generated-sources\antlr4\br\ufscar\dc\compiladores\receitahtml\receitaHTML_Exp_reg_BaseListener.java
+C:\Users\UsuárioR\Documents\NetBeansProjects\receitaHTML\src\main\java\br\ufscar\dc\compiladores\receitahtml\receitaHTMLSemanticoUtils.java
+C:\Users\UsuárioR\Documents\NetBeansProjects\receitaHTML\target\generated-sources\antlr4\br\ufscar\dc\compiladores\receitahtml\receitaHTML_Exp_reg_Visitor.java
+C:\Users\UsuárioR\Documents\NetBeansProjects\receitaHTML\target\generated-sources\antlr4\br\ufscar\dc\compiladores\receitahtml\receitaHTML_Exp_reg_Parser.java
+C:\Users\UsuárioR\Documents\NetBeansProjects\receitaHTML\src\main\java\br\ufscar\dc\compiladores\receitahtml\MeuErrorListener.java

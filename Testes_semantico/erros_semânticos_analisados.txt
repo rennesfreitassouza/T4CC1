@@ -1,0 +1,2 @@
+- checagem de identificadores para utensílios já declarados.
+- verificação de um mesmo identificador dado para utilidades diferentes de um mesmo utensílio.

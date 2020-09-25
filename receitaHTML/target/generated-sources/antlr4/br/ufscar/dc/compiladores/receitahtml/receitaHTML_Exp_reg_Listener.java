@@ -137,4 +137,34 @@ public interface receitaHTML_Exp_reg_Listener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitChamada_utensilio(receitaHTML_Exp_reg_Parser.Chamada_utensilioContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link receitaHTML_Exp_reg_Parser#parametro}.
+	 * @param ctx the parse tree
+	 */
+	void enterParametro(receitaHTML_Exp_reg_Parser.ParametroContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link receitaHTML_Exp_reg_Parser#parametro}.
+	 * @param ctx the parse tree
+	 */
+	void exitParametro(receitaHTML_Exp_reg_Parser.ParametroContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link receitaHTML_Exp_reg_Parser#condicional_ate}.
+	 * @param ctx the parse tree
+	 */
+	void enterCondicional_ate(receitaHTML_Exp_reg_Parser.Condicional_ateContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link receitaHTML_Exp_reg_Parser#condicional_ate}.
+	 * @param ctx the parse tree
+	 */
+	void exitCondicional_ate(receitaHTML_Exp_reg_Parser.Condicional_ateContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link receitaHTML_Exp_reg_Parser#instrucao_para_utensilio}.
+	 * @param ctx the parse tree
+	 */
+	void enterInstrucao_para_utensilio(receitaHTML_Exp_reg_Parser.Instrucao_para_utensilioContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link receitaHTML_Exp_reg_Parser#instrucao_para_utensilio}.
+	 * @param ctx the parse tree
+	 */
+	void exitInstrucao_para_utensilio(receitaHTML_Exp_reg_Parser.Instrucao_para_utensilioContext ctx);
 }

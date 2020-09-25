@@ -88,4 +88,22 @@ public interface receitaHTML_Exp_reg_Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitChamada_utensilio(receitaHTML_Exp_reg_Parser.Chamada_utensilioContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link receitaHTML_Exp_reg_Parser#parametro}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitParametro(receitaHTML_Exp_reg_Parser.ParametroContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link receitaHTML_Exp_reg_Parser#condicional_ate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCondicional_ate(receitaHTML_Exp_reg_Parser.Condicional_ateContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link receitaHTML_Exp_reg_Parser#instrucao_para_utensilio}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInstrucao_para_utensilio(receitaHTML_Exp_reg_Parser.Instrucao_para_utensilioContext ctx);
 }
