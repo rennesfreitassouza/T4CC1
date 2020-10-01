@@ -24,26 +24,230 @@ public class receitaHTMLGeradordeHTML extends receitaHTML_Exp_reg_BaseVisitor<Vo
         saida.append("</head>\n");
         saida.append("<body>\n");
         
-        //TABELAS AQUI.
-        
+        visitTitulo(ctx.titulo()); 
+        visitDescricao(ctx.descricao());
+        visitRendimento(ctx.rendimento()); 
+        visitTempo_de_preparo(ctx.tempo_de_preparo());
+        visitUtensilios(ctx.utensilios());
+        visitIngredientes(ctx.ingredientes());
+        visitModo_de_preparo(ctx.modo_de_preparo());
         saida.append("</body>\n");
         saida.append("</html>");
-//        if (ctx.corpo().declaracao_local().isEmpty()) // Se não houver nenhum padrão reconhecido na regra declaracao_local, insere a String a seguir no acumulador de Strings.
-//        {
-//          saida.append("int main() {\n");
-//        }
-//        ctx.declaracoes().decl_local_global().forEach(declaracoes -> visitDeclaracoes(ctx.declaracoes()));
-        //ctx.corpo().
-        // TESTAR WHILE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-//        visitCorpo(ctx.corpo());
-//        ctx.declaracao().forEach(dec -> visitDeclaracao(dec)); // Aqui é feita as declarações de variáveis. No arquivo Alguma.g4, declarações da regra programa é uma lista
-//        .forEach varre a lista de declarações. Para cada declaração, ocorre a chamada do visitDeclaracao(dec). No visitDeclaracao(dec) é feito o código da declaração.
-//        saida.append("\treturn 0;\n");
-//        saida.append("}");
-//        saida.append("int main() {\n");
-//        ctx.comando().forEach(cmd -> visitComando(cmd));//Semelhante a declaração.
-//        saida.append("}\n");
+
         return null;
     }
     
+    
+    @Override
+    // Inserção da string referente ao titulo da receita no objeto desta classe chamado saida.
+    public Void visitTitulo(receitaHTML_Exp_reg_Parser.TituloContext ctx){
+        String tituloSemAspas = ctx.STRING().getText().replaceAll("\"", "");
+        saida.append("<h1 id=\"titulo\">"+tituloSemAspas+"</h1>\n");
+        return null;
+    }
+
+    @Override
+    // Inserção da string referente a descrição da receita no objeto desta classe chamado saida.
+    public Void visitDescricao(receitaHTML_Exp_reg_Parser.DescricaoContext ctx) {
+        String descricaoSemAspas = ctx.STRING().getText().replaceAll("\"", "");
+        saida.append("<h2 class=\"descricao\">Descrição: " +descricaoSemAspas+ "</h2>\n");
+        return null;
+    }
+    
+    @Override
+    // Inserção da string referente ao rendimento da receita no objeto desta classe chamado saida.
+    public Void visitRendimento(receitaHTML_Exp_reg_Parser.RendimentoContext ctx) {
+        String rendimentoSemAspas = ctx.STRING().getText().replaceAll("\"", "");
+        saida.append("<strong>Rendimento: </strong>\n");
+        saida.append(rendimentoSemAspas+"<br>\n");
+        return null;
+    }
+    
+    @Override
+    // Inserção da string referente ao tempo de preparo da receita no objeto desta classe chamado saida.
+    public Void visitTempo_de_preparo(receitaHTML_Exp_reg_Parser.Tempo_de_preparoContext ctx){
+        String tempo_de_preparoSemAspas = ctx.STRING().getText().replaceAll("\"", "");
+        saida.append("<strong>Tempo de preparo: </strong>\n");
+        saida.append(tempo_de_preparoSemAspas+ "<br>\n");
+        return null;
+    }
+    
+    @Override
+    // Aqui é feita a chamada ao visitor visitUtensilio para inserção de uma string no objeto desta classe chamado
+    // saida e também inserção de valores na tabela de símbolos.
+    public Void visitUtensilios(receitaHTML_Exp_reg_Parser.UtensiliosContext ctx){
+        saida.append("<strong>Utensílios:</strong>\n");
+        
+        saida.append("<ul id=\"listaNaoOrdenada\">\n");        
+        if (!ctx.utensilio().isEmpty()) {
+            for(receitaHTML_Exp_reg_Parser.UtensilioContext utensilio : ctx.utensilio()) {
+                visitUtensilio(utensilio);
+            }
+        }
+        else{
+            saida.append("---Nenhum item declarado---<br>");
+        }
+        
+        saida.append("</ul>\n");
+        return null;
+    }
+    
+    @Override
+    // Inserção da string referente a cada identificador de utensílio da receita no objeto desta classe chamado saida.
+    // Inserção dos dados necessário na tabela de símbolos que serão necessários para produzir o modo de preparo.
+    public Void visitUtensilio(receitaHTML_Exp_reg_Parser.UtensilioContext ctx) {
+        
+        saida.append("<li>"+ctx.STRING().getText().replaceAll("\"", "")+"</li>\n");
+        //Adiciona na tabela de símbolos todos os dados necessários para que a página HTML seja construída como
+        //descrito no código na linguagem receitaHTML.
+        escopoReceitaHTML.getEscopoTabela().adicionar(EntradaTabelaDeSimbolos.TiporeceitaHTML.funcao, 
+                                                EntradaTabelaDeSimbolos.CategoriareceitaHTML.utensilio, 
+                                                ctx.IDENTIFICADOR().getText(),
+                                                ctx.STRING().getText().replaceAll("\"", "")); // Descrição.
+        // A regra faz_o_que deste visitor nunca será vazia. Essa verificação é desnecessária.
+        // Dessa forma, é adiciona na tabela o nome das subfunções e suas respectivas strings para posterior substituição
+        // nas listas do código HTML.
+        for (receitaHTML_Exp_reg_Parser.Faz_o_queContext utilidade : ctx.faz_o_que()) {
+            escopoReceitaHTML.getEscopoTabela().adicionar(EntradaTabelaDeSimbolos.TiporeceitaHTML.subfuncao,
+                    EntradaTabelaDeSimbolos.CategoriareceitaHTML.utilidade_utensilio,
+                    ctx.IDENTIFICADOR().getText()+ "." +utilidade.IDENTIFICADOR().getText(),
+                    utilidade.STRING().getText().replaceAll("\"", "")); // Foram retiradas as aspas da String.
+        }
+        return null;
+    }
+    
+    @Override
+    // Aqui é feita a chamada ao visitor visitIngrediente para inserção de uma string no objeto desta classe chamado
+    // saida e também a inserção de valores na tabela de símbolos.
+    public Void visitIngredientes(receitaHTML_Exp_reg_Parser.IngredientesContext ctx){
+        saida.append("<strong>Ingredientes:</strong>\n");
+        
+        saida.append("<ul id=\"listaNaoOrdenada\">\n");
+        for (receitaHTML_Exp_reg_Parser.IngredienteContext ingrediente : ctx.ingrediente()) {
+            visitIngrediente(ingrediente);
+        }
+        saida.append("</ul>\n");
+        return null;
+    }
+    
+    @Override
+    // Inserção da string referente a cada descrição de ingrediente da receita no objeto desta classe chamado saida.
+    // Inserção dos dados necessário na tabela de símbolos que serão necessários para produzir o modo de preparo.
+    public Void visitIngrediente(receitaHTML_Exp_reg_Parser.IngredienteContext ctx) {
+        saida.append("<li>" + ctx.STRING().getText().replaceAll("\"", "") + "</li>");
+        // Adiciona na tabela de símbolos todos os dados necessários para que a página HTML seja construída como
+        // descrito no código na linguagem receitaHTML.
+        escopoReceitaHTML.getEscopoTabela().adicionar(EntradaTabelaDeSimbolos.TiporeceitaHTML.variavel,
+                EntradaTabelaDeSimbolos.CategoriareceitaHTML.ingrediente,
+                ctx.IDENTIFICADOR().getText(),
+                ctx.STRING().getText().replaceAll("\"", ""));        
+        
+        return null;
+    }
+    
+    @Override
+    // Neste visitor ocorre a chamada do visitor instrucoes_preparacao, onde a substituição dos valores
+    // encontrados na tabela pelos respectivos valores encontrados no código na linguagem receitaHTML começarão a ocorrer. 
+    // Assim, o armazenamento das instruções da lógica do modo de preparo poderá ser feita no arquivo HTML.
+    public Void visitModo_de_preparo(receitaHTML_Exp_reg_Parser.Modo_de_preparoContext ctx){
+        saida.append("<strong>Modo de preparo:</strong>\n");
+        saida.append("<ol id=\"listaOrdenada\">\n");
+        
+        // Para cada bloco (é considerado bloco tudo aquilo que está entre chaves), é feita uma chamada ao visitor
+        // instrucoes_preparacao, que será um passo do modo de preparo da receita.
+        for (receitaHTML_Exp_reg_Parser.Instrucoes_preparacaoContext instrucoes_preparacao : ctx.instrucoes_preparacao()) {
+            saida.append("<li>");
+            visitInstrucoes_preparacao(instrucoes_preparacao);
+            saida.append("</li>\n");
+        }
+        saida.append("<ol id=\"listaOdenada\">\n");
+        return null;
+    }
+    
+    @Override
+    // Verificação da existencia das regras que fazem parte desta regra que reconhecem certos padrões.
+    // Assim, o modo de preparo pode ser gerado.
+    public Void visitInstrucoes_preparacao(receitaHTML_Exp_reg_Parser.Instrucoes_preparacaoContext ctx){
+        if(ctx.condicional_ate() != null){
+            visitCondicional_ate(ctx.condicional_ate());
+            saida.append(".");
+        }
+        
+        for (receitaHTML_Exp_reg_Parser.Chamada_utensilioContext chamada_utensilio : ctx.chamada_utensilio()){
+            visitChamada_utensilio(chamada_utensilio);
+            saida.append(".");
+        }
+        
+        if(ctx.INSTRUCAO_PARAEXECUCAO() != null){
+            saida.append (" "+ctx.INSTRUCAO_PARAEXECUCAO().getText().toLowerCase().replaceAll("_", " "));
+            saida.append(".");
+        }
+        
+        //O que é melhor para otimização da execução do compilador: um condicional + um comando, ou varios comandos e nenhum condicional?
+        
+        return null;
+    }
+    
+    @Override
+    //
+    public Void visitChamada_utensilio(receitaHTML_Exp_reg_Parser.Chamada_utensilioContext ctx){
+        if(ctx.instrucao_para_utensilio() != null){
+            visitInstrucao_para_utensilio(ctx.instrucao_para_utensilio());
+        }
+        
+        saida.append(" "+escopoReceitaHTML.getEscopoTabela().getDescricao(ctx.identificador_utensilio.getText()+"."+ctx.identificador_subfuncao_utensilio.getText()));
+        saida.append(" "+escopoReceitaHTML.getEscopoTabela().getDescricao(ctx.identificador_utensilio.getText()));
+        
+        if (!ctx.parametro().isEmpty()){
+            saida.append(":");
+        }
+        
+        int qtdparametros = ctx.parametro().size();
+        for(receitaHTML_Exp_reg_Parser.ParametroContext parametro : ctx.parametro()){
+            if(parametro.IDENTIFICADOR() != null)
+            {
+                saida.append(" "+escopoReceitaHTML.getEscopoTabela().getDescricao(parametro.getText()));
+            }
+            else{
+                if(parametro.STRING() != null){
+                    saida.append(" "+parametro.STRING().getText().replaceAll("\"", ""));
+                }
+            }
+            qtdparametros--;
+            if (qtdparametros != 0){
+                if (qtdparametros != 1){
+                    saida.append(",");
+                }
+                else{
+                    saida.append(" e");
+                }
+            }
+                
+        }
+        return null;
+    }
+    
+    @Override
+    // Este visitor faz as chamadas a visitChamada_utensilio e faz o armazenamento no objeto saida desta classe das strings que fazem parte do 
+    // condicional ate da linguagem receitaHTML.
+    public Void visitCondicional_ate(receitaHTML_Exp_reg_Parser.Condicional_ateContext ctx){
+        
+        visitChamada_utensilio(ctx.chamada_utensilio());
+        saida.append(" "+ctx.palavra_reservada_ate.getText().toLowerCase());
+        saida.append(" "+ctx.STRING().getText().replaceAll("\"", ""));
+        
+        
+        return null;
+    }
+    
+    @Override
+    public Void visitInstrucao_para_utensilio(receitaHTML_Exp_reg_Parser.Instrucao_para_utensilioContext ctx){
+        saida.append(ctx.STRING1.getText().replaceAll("\"", ""));
+        saida.append(" "+escopoReceitaHTML.getEscopoTabela().getDescricao(ctx.IDENTIFICADOR().getText()));
+        if (ctx.STRING_OPCIONAL != null){
+            saida.append(" "+ctx.STRING_OPCIONAL.getText().replaceAll("\"", ""));
+        }
+        saida.append(".");
+        return null;
+    }
 }

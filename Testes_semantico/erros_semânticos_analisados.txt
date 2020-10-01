@@ -1,2 +1,5 @@
 - checagem de identificadores para utensílios já declarados.
 - verificação de um mesmo identificador dado para utilidades diferentes de um mesmo utensílio.
+- verificação de um mesmo identificador dado para ingredientes diferentes.
+- verificação de identificador para utensílio não declarado ou que não está na categoria certa ou que chama uma subfunção que não faz parte de sua declaração.
+- verificação de identificador para ingrediente e checagem de categoria dos identificadores no modo de preparo.

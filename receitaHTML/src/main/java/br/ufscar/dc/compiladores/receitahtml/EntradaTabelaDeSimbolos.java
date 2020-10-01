@@ -15,7 +15,8 @@ public class EntradaTabelaDeSimbolos {
         utilidade_utensilio
     }
     
-    String nome;
     TiporeceitaHTML tipo;
     CategoriareceitaHTML categoria;
+    String nome;
+    String descricao;
 }

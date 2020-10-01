@@ -19,11 +19,12 @@ public class TabelaDeSimbolos {
         this.tabela = new HashMap<>();
     }
 
-    public void adicionar(TiporeceitaHTML tipo, CategoriareceitaHTML categoria, String nome) {
+    public void adicionar(TiporeceitaHTML tipo, CategoriareceitaHTML categoria, String nome, String descricao) {
         EntradaTabelaDeSimbolos etds = new EntradaTabelaDeSimbolos();
         etds.tipo = tipo;
         etds.categoria = categoria;
         etds.nome = nome;
+        etds.descricao = descricao;
         tabela.put(nome, etds); // Insere na tabela por meio do método put. É passado para o método uma chave, nesse caso,
                                 // o nome e um objeto do tipo EntradaTabelaDeSimbolos, que é a entrada.
                                 // Então a tabeça de símbolos fica indexada através do nome.
@@ -33,11 +34,20 @@ public class TabelaDeSimbolos {
         return tabela.containsKey(nome);
     }
 
-    public TiporeceitaHTML verificarTiporeceitaHTML(String nome) {
+    public TiporeceitaHTML getTiporeceitaHTML(String nome) {
         return tabela.get(nome).tipo; // Método get retorna nulo se o mapa não contém aquela chave.
     }
 
-    public CategoriareceitaHTML verificarCategoriareceitaHTML(String nome) {
+    public CategoriareceitaHTML getCategoriareceitaHTML(String nome) {
         return tabela.get(nome).categoria; // Método get retorna nulo se o mapa não contém aquela chave.
-    }    
+    }
+    
+    public String getStringAtribuidaAoNome(String nome){
+        return tabela.get(nome).nome;
+    }
+    
+    public String getDescricao(String nome){
+        return tabela.get(nome).descricao;
+    }
+    
 }

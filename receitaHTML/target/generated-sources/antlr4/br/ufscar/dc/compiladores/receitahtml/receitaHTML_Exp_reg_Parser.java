@@ -833,7 +833,7 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 
 	public static class Chamada_utensilioContext extends ParserRuleContext {
 		public Token identificador_utensilio;
-		public Token identificador_funcao_utensilio;
+		public Token identificador_subfuncao_utensilio;
 		public List<TerminalNode> IDENTIFICADOR() { return getTokens(receitaHTML_Exp_reg_Parser.IDENTIFICADOR); }
 		public TerminalNode IDENTIFICADOR(int i) {
 			return getToken(receitaHTML_Exp_reg_Parser.IDENTIFICADOR, i);
@@ -888,7 +888,7 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 			setState(125);
 			match(T__15);
 			setState(126);
-			((Chamada_utensilioContext)_localctx).identificador_funcao_utensilio = match(IDENTIFICADOR);
+			((Chamada_utensilioContext)_localctx).identificador_subfuncao_utensilio = match(IDENTIFICADOR);
 			setState(127);
 			match(T__16);
 			setState(136);
@@ -985,6 +985,7 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 	}
 
 	public static class Condicional_ateContext extends ParserRuleContext {
+		public Token palavra_reservada_ate;
 		public TerminalNode STRING() { return getToken(receitaHTML_Exp_reg_Parser.STRING, 0); }
 		public Chamada_utensilioContext chamada_utensilio() {
 			return getRuleContext(Chamada_utensilioContext.class,0);
@@ -1015,7 +1016,7 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(142);
-			match(T__19);
+			((Condicional_ateContext)_localctx).palavra_reservada_ate = match(T__19);
 			setState(143);
 			match(STRING);
 			setState(144);
@@ -1034,11 +1035,13 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 	}
 
 	public static class Instrucao_para_utensilioContext extends ParserRuleContext {
+		public Token STRING1;
+		public Token STRING_OPCIONAL;
+		public TerminalNode IDENTIFICADOR() { return getToken(receitaHTML_Exp_reg_Parser.IDENTIFICADOR, 0); }
 		public List<TerminalNode> STRING() { return getTokens(receitaHTML_Exp_reg_Parser.STRING); }
 		public TerminalNode STRING(int i) {
 			return getToken(receitaHTML_Exp_reg_Parser.STRING, i);
 		}
-		public TerminalNode IDENTIFICADOR() { return getToken(receitaHTML_Exp_reg_Parser.IDENTIFICADOR, 0); }
 		public Instrucao_para_utensilioContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1066,7 +1069,7 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(146);
-			match(STRING);
+			((Instrucao_para_utensilioContext)_localctx).STRING1 = match(STRING);
 			setState(147);
 			match(IDENTIFICADOR);
 			setState(149);
@@ -1075,7 +1078,7 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 			if (_la==STRING) {
 				{
 				setState(148);
-				match(STRING);
+				((Instrucao_para_utensilioContext)_localctx).STRING_OPCIONAL = match(STRING);
 				}
 			}
 

@@ -7,6 +7,7 @@ import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.Token;
 import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import org.antlr.v4.runtime.RecognitionException;
 
@@ -17,6 +18,9 @@ public class Principal {
        
         //Caso o código fonte não possuir erros léxicos, os tokens que seriam armazenados em arquivo são descartados e um novo arquivo é criado.
         FileOutputStream arquivo = new FileOutputStream(args[1]); //Objeto com nome de 'arquivo' do tipo FileOutputStream que cria um arquivo .txt no diretório passado no segundo argumento por linha de comando para ser escrito.
+        //FileOutputStream arquivo = new FileOutputStream(args[1], true);
+        //OutputStreamWriter osw = new OutputStreamWriter(arquivo, S);
+        
         PrintWriter pw = new PrintWriter(arquivo); // Objeto do tipo PrintWriter que escreve no objeto 'arquivo' que está aberto para gravar dados.
 
         receitaHTML_Exp_reg_Lexer lexicoParaSintatico = new receitaHTML_Exp_reg_Lexer(cs); //Construção do léxico.

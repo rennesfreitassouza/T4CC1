@@ -54,6 +54,7 @@ titulo /*Regra definida para reconhecer o padrão de formação de um título na
 descricao /*Regra definida para reconhecer o padrão de formação de uma descrição na linguagem receitaHTML.*/
         : 'DESCRICAO' ':' STRING
         ;
+
 rendimento /*Regra definida para reconhecer o padrão de formação de um rendimento na linguagem receitaHTML.*/
         : 'RENDIMENTO' ':' STRING
         ;
@@ -95,7 +96,7 @@ instrucoes_preparacao /*Regra definida para reconhecer o padrão de formação d
 
 chamada_utensilio /*Regra definida para reconhecer o padrão de formação de uma chamada a uma função e de sua respectiva subfunção.*/
     :   (instrucao_para_utensilio)?
-            identificador_utensilio=IDENTIFICADOR '.' identificador_funcao_utensilio=IDENTIFICADOR 
+            identificador_utensilio=IDENTIFICADOR '.' identificador_subfuncao_utensilio=IDENTIFICADOR 
                 '(' (parametro ('+' parametro)*)? ')'
     ;
 
@@ -104,9 +105,9 @@ parametro /*Regra definida para reconhecer os dois padrões de formação de um 
         IDENTIFICADOR | STRING
     ;
 condicional_ate /*Regra definida para reconhecer o padrão de formação de um condicional ATE da linguagem receitaHTML.*/
-    : 'ATE' STRING chamada_utensilio
+    : palavra_reservada_ate='ATE' STRING chamada_utensilio
     ;
 
 instrucao_para_utensilio /*Regra definida para reconhecer o padrão de formação de uma instrução para um utensílio que não foi definida e precisa ser escrita para que a receita esteja completa.*/
-    : STRING IDENTIFICADOR (STRING)?
+    : STRING1=STRING IDENTIFICADOR (STRING_OPCIONAL=STRING)?
     ;
