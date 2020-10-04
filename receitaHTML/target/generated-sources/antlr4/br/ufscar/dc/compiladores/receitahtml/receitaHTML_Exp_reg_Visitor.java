@@ -83,6 +83,12 @@ public interface receitaHTML_Exp_reg_Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitInstrucoes_preparacao(receitaHTML_Exp_reg_Parser.Instrucoes_preparacaoContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link receitaHTML_Exp_reg_Parser#formato_INSTRUCAO_PARAEXECUCAO}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFormato_INSTRUCAO_PARAEXECUCAO(receitaHTML_Exp_reg_Parser.Formato_INSTRUCAO_PARAEXECUCAOContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link receitaHTML_Exp_reg_Parser#chamada_utensilio}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -106,4 +112,10 @@ public interface receitaHTML_Exp_reg_Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitInstrucao_para_utensilio(receitaHTML_Exp_reg_Parser.Instrucao_para_utensilioContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link receitaHTML_Exp_reg_Parser#fim_de_arquivo}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFim_de_arquivo(receitaHTML_Exp_reg_Parser.Fim_de_arquivoContext ctx);
 }

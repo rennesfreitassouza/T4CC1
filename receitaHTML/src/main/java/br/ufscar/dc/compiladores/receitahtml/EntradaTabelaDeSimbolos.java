@@ -19,4 +19,5 @@ public class EntradaTabelaDeSimbolos {
     CategoriareceitaHTML categoria;
     String nome;
     String descricao;
+    boolean itemFoiUsadoNaFuncao;
 }

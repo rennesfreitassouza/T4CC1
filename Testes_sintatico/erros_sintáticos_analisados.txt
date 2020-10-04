@@ -1,5 +1,5 @@
--titulo sem a palavra reservada "NOME";
--identificação de um utensilio que não faz nada;
--uma definição de ingrediente em que o nome do ingrediente não é definido;
--um passo do modo de preparo sem a abertura de chaves {
--parêntesis não aberto.
+caso_de_teste_1: titulo sem a palavra reservada "NOME";
+caso_de_teste_2: identificação de um utensilio que não faz nada;
+caso_de_teste_3: uma definição de ingrediente em que o nome do ingrediente não é definido;
+caso_de_teste_4: um passo do modo de preparo sem a abertura de chaves {
+caso_de_teste_5: parêntesis não aberto.

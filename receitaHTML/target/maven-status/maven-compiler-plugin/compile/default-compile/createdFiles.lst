@@ -4,6 +4,7 @@ br\ufscar\dc\compiladores\receitahtml\receitaHTML_Exp_reg_Visitor.class
 br\ufscar\dc\compiladores\receitahtml\receitaHTML_Exp_reg_Parser$ParametroContext.class
 br\ufscar\dc\compiladores\receitahtml\receitaHTML_Exp_reg_Parser$UtensilioContext.class
 br\ufscar\dc\compiladores\receitahtml\TabelaDeSimbolos.class
+br\ufscar\dc\compiladores\receitahtml\receitaHTML_Exp_reg_Parser$Fim_de_arquivoContext.class
 br\ufscar\dc\compiladores\receitahtml\receitaHTML_Exp_reg_Parser$Chamada_utensilioContext.class
 br\ufscar\dc\compiladores\receitahtml\MeuErrorListener.class
 br\ufscar\dc\compiladores\receitahtml\receitaHTML_Exp_reg_BaseListener.class
@@ -27,6 +28,7 @@ br\ufscar\dc\compiladores\receitahtml\receitaHTML_Exp_reg_Parser$Instrucoes_prep
 br\ufscar\dc\compiladores\receitahtml\receitaHTML_Exp_reg_BaseVisitor.class
 br\ufscar\dc\compiladores\receitahtml\receitaHTML_Exp_reg_Parser$ReceitaContext.class
 br\ufscar\dc\compiladores\receitahtml\receitaHTML_Exp_reg_Parser$Faz_o_queContext.class
+br\ufscar\dc\compiladores\receitahtml\receitaHTML_Exp_reg_Parser$Formato_INSTRUCAO_PARAEXECUCAOContext.class
 br\ufscar\dc\compiladores\receitahtml\receitaHTMLGeradordeHTML.class
 br\ufscar\dc\compiladores\receitahtml\receitaHTML_Exp_reg_Listener.class
 br\ufscar\dc\compiladores\receitahtml\EntradaTabelaDeSimbolos.class

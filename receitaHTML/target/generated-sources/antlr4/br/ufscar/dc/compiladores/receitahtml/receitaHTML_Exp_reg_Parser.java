@@ -26,14 +26,15 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		RULE_receita = 0, RULE_titulo = 1, RULE_descricao = 2, RULE_rendimento = 3, 
 		RULE_tempo_de_preparo = 4, RULE_utensilios = 5, RULE_utensilio = 6, RULE_faz_o_que = 7, 
 		RULE_ingredientes = 8, RULE_ingrediente = 9, RULE_modo_de_preparo = 10, 
-		RULE_instrucoes_preparacao = 11, RULE_chamada_utensilio = 12, RULE_parametro = 13, 
-		RULE_condicional_ate = 14, RULE_instrucao_para_utensilio = 15;
+		RULE_instrucoes_preparacao = 11, RULE_formato_INSTRUCAO_PARAEXECUCAO = 12, 
+		RULE_chamada_utensilio = 13, RULE_parametro = 14, RULE_condicional_ate = 15, 
+		RULE_instrucao_para_utensilio = 16, RULE_fim_de_arquivo = 17;
 	private static String[] makeRuleNames() {
 		return new String[] {
 			"receita", "titulo", "descricao", "rendimento", "tempo_de_preparo", "utensilios", 
 			"utensilio", "faz_o_que", "ingredientes", "ingrediente", "modo_de_preparo", 
-			"instrucoes_preparacao", "chamada_utensilio", "parametro", "condicional_ate", 
-			"instrucao_para_utensilio"
+			"instrucoes_preparacao", "formato_INSTRUCAO_PARAEXECUCAO", "chamada_utensilio", 
+			"parametro", "condicional_ate", "instrucao_para_utensilio", "fim_de_arquivo"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -42,7 +43,7 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		return new String[] {
 			null, "'NOME'", "':'", "'DESCRICAO'", "'RENDIMENTO'", "'TEMPO'", "'DE'", 
 			"'PREPARO'", "'UTENSILIOS'", "'-'", "'='", "'{'", "'}'", "'*'", "'INGREDIENTES'", 
-			"'MODO'", "'.'", "'('", "'+'", "')'", "'ATE'"
+			"'MODO'", "'('", "')'", "'.'", "'+'", "'ATE'", null, null, "'instrucao_'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
@@ -127,7 +128,9 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		public Modo_de_preparoContext modo_de_preparo() {
 			return getRuleContext(Modo_de_preparoContext.class,0);
 		}
-		public TerminalNode EOF() { return getToken(receitaHTML_Exp_reg_Parser.EOF, 0); }
+		public Fim_de_arquivoContext fim_de_arquivo() {
+			return getRuleContext(Fim_de_arquivoContext.class,0);
+		}
 		public ReceitaContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -153,22 +156,22 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(32);
-			titulo();
-			setState(33);
-			descricao();
-			setState(34);
-			rendimento();
-			setState(35);
-			tempo_de_preparo();
 			setState(36);
-			utensilios();
+			titulo();
 			setState(37);
-			ingredientes();
+			descricao();
 			setState(38);
-			modo_de_preparo();
+			rendimento();
 			setState(39);
-			match(EOF);
+			tempo_de_preparo();
+			setState(40);
+			utensilios();
+			setState(41);
+			ingredientes();
+			setState(42);
+			modo_de_preparo();
+			setState(43);
+			fim_de_arquivo();
 			}
 		}
 		catch (RecognitionException re) {
@@ -209,11 +212,11 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(41);
+			setState(45);
 			match(T__0);
-			setState(42);
+			setState(46);
 			match(T__1);
-			setState(43);
+			setState(47);
 			match(STRING);
 			}
 		}
@@ -255,11 +258,11 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(45);
+			setState(49);
 			match(T__2);
-			setState(46);
+			setState(50);
 			match(T__1);
-			setState(47);
+			setState(51);
 			match(STRING);
 			}
 		}
@@ -301,11 +304,11 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(49);
+			setState(53);
 			match(T__3);
-			setState(50);
+			setState(54);
 			match(T__1);
-			setState(51);
+			setState(55);
 			match(STRING);
 			}
 		}
@@ -347,15 +350,15 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(53);
-			match(T__4);
-			setState(54);
-			match(T__5);
-			setState(55);
-			match(T__6);
-			setState(56);
-			match(T__1);
 			setState(57);
+			match(T__4);
+			setState(58);
+			match(T__5);
+			setState(59);
+			match(T__6);
+			setState(60);
+			match(T__1);
+			setState(61);
 			match(STRING);
 			}
 		}
@@ -403,21 +406,21 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(59);
+			setState(63);
 			match(T__7);
-			setState(60);
-			match(T__1);
 			setState(64);
+			match(T__1);
+			setState(68);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==T__8) {
 				{
 				{
-				setState(61);
+				setState(65);
 				utensilio();
 				}
 				}
-				setState(66);
+				setState(70);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -469,31 +472,31 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(67);
-			match(T__8);
-			setState(68);
-			match(IDENTIFICADOR);
-			setState(69);
-			match(T__9);
-			setState(70);
-			match(STRING);
 			setState(71);
+			match(T__8);
+			setState(72);
+			match(IDENTIFICADOR);
+			setState(73);
+			match(T__9);
+			setState(74);
+			match(STRING);
+			setState(75);
 			match(T__10);
-			setState(73); 
+			setState(77); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(72);
+				setState(76);
 				faz_o_que();
 				}
 				}
-				setState(75); 
+				setState(79); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==T__12 );
-			setState(77);
+			setState(81);
 			match(T__11);
 			}
 		}
@@ -536,13 +539,13 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(79);
+			setState(83);
 			match(T__12);
-			setState(80);
+			setState(84);
 			match(IDENTIFICADOR);
-			setState(81);
+			setState(85);
 			match(T__9);
-			setState(82);
+			setState(86);
 			match(STRING);
 			}
 		}
@@ -590,21 +593,21 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(84);
+			setState(88);
 			match(T__13);
-			setState(85);
+			setState(89);
 			match(T__1);
-			setState(87); 
+			setState(91); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(86);
+				setState(90);
 				ingrediente();
 				}
 				}
-				setState(89); 
+				setState(93); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==T__8 );
@@ -649,13 +652,13 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(91);
+			setState(95);
 			match(T__8);
-			setState(92);
+			setState(96);
 			match(IDENTIFICADOR);
-			setState(93);
+			setState(97);
 			match(T__9);
-			setState(94);
+			setState(98);
 			match(STRING);
 			}
 		}
@@ -703,25 +706,25 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(96);
+			setState(100);
 			match(T__14);
-			setState(97);
+			setState(101);
 			match(T__5);
-			setState(98);
+			setState(102);
 			match(T__6);
-			setState(99);
+			setState(103);
 			match(T__1);
-			setState(101); 
+			setState(105); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(100);
+				setState(104);
 				instrucoes_preparacao();
 				}
 				}
-				setState(103); 
+				setState(107); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==IDENTIFICADOR );
@@ -740,6 +743,7 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 
 	public static class Instrucoes_preparacaoContext extends ParserRuleContext {
 		public TerminalNode IDENTIFICADOR() { return getToken(receitaHTML_Exp_reg_Parser.IDENTIFICADOR, 0); }
+		public TerminalNode NUM_INT() { return getToken(receitaHTML_Exp_reg_Parser.NUM_INT, 0); }
 		public Condicional_ateContext condicional_ate() {
 			return getRuleContext(Condicional_ateContext.class,0);
 		}
@@ -749,7 +753,12 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		public Chamada_utensilioContext chamada_utensilio(int i) {
 			return getRuleContext(Chamada_utensilioContext.class,i);
 		}
-		public TerminalNode INSTRUCAO_PARAEXECUCAO() { return getToken(receitaHTML_Exp_reg_Parser.INSTRUCAO_PARAEXECUCAO, 0); }
+		public List<Formato_INSTRUCAO_PARAEXECUCAOContext> formato_INSTRUCAO_PARAEXECUCAO() {
+			return getRuleContexts(Formato_INSTRUCAO_PARAEXECUCAOContext.class);
+		}
+		public Formato_INSTRUCAO_PARAEXECUCAOContext formato_INSTRUCAO_PARAEXECUCAO(int i) {
+			return getRuleContext(Formato_INSTRUCAO_PARAEXECUCAOContext.class,i);
+		}
 		public Instrucoes_preparacaoContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -774,50 +783,132 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 		enterRule(_localctx, 22, RULE_instrucoes_preparacao);
 		int _la;
 		try {
+			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(105);
-			match(IDENTIFICADOR);
-			setState(106);
-			match(T__1);
-			setState(107);
-			match(T__10);
 			setState(109);
+			match(IDENTIFICADOR);
+			setState(111);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if (_la==NUM_INT) {
+				{
+				setState(110);
+				match(NUM_INT);
+				}
+			}
+
+			setState(113);
+			match(T__1);
+			setState(114);
+			match(T__10);
+			setState(116);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==T__19) {
 				{
-				setState(108);
+				setState(115);
 				condicional_ate();
 				}
 			}
 
-			setState(112); 
+			setState(131);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			do {
+			while (_la==IDENTIFICADOR || _la==STRING) {
 				{
 				{
-				setState(111);
-				chamada_utensilio();
-				}
-				}
-				setState(114); 
+				setState(119); 
+				_errHandler.sync(this);
+				_alt = 1;
+				do {
+					switch (_alt) {
+					case 1:
+						{
+						{
+						setState(118);
+						chamada_utensilio();
+						}
+						}
+						break;
+					default:
+						throw new NoViableAltException(this);
+					}
+					setState(121); 
+					_errHandler.sync(this);
+					_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
+				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+				setState(126);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( _la==IDENTIFICADOR || _la==STRING );
-			setState(117);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if (_la==INSTRUCAO_PARAEXECUCAO) {
-				{
-				setState(116);
-				match(INSTRUCAO_PARAEXECUCAO);
+				while (_la==INSTRUCAO_PARAEXECUCAO) {
+					{
+					{
+					setState(123);
+					formato_INSTRUCAO_PARAEXECUCAO();
+					}
+					}
+					setState(128);
+					_errHandler.sync(this);
+					_la = _input.LA(1);
 				}
+				}
+				}
+				setState(133);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
 			}
-
-			setState(119);
+			setState(134);
 			match(T__11);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Formato_INSTRUCAO_PARAEXECUCAOContext extends ParserRuleContext {
+		public TerminalNode INSTRUCAO_PARAEXECUCAO() { return getToken(receitaHTML_Exp_reg_Parser.INSTRUCAO_PARAEXECUCAO, 0); }
+		public TerminalNode STRING() { return getToken(receitaHTML_Exp_reg_Parser.STRING, 0); }
+		public Formato_INSTRUCAO_PARAEXECUCAOContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_formato_INSTRUCAO_PARAEXECUCAO; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof receitaHTML_Exp_reg_Listener ) ((receitaHTML_Exp_reg_Listener)listener).enterFormato_INSTRUCAO_PARAEXECUCAO(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof receitaHTML_Exp_reg_Listener ) ((receitaHTML_Exp_reg_Listener)listener).exitFormato_INSTRUCAO_PARAEXECUCAO(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof receitaHTML_Exp_reg_Visitor ) return ((receitaHTML_Exp_reg_Visitor<? extends T>)visitor).visitFormato_INSTRUCAO_PARAEXECUCAO(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final Formato_INSTRUCAO_PARAEXECUCAOContext formato_INSTRUCAO_PARAEXECUCAO() throws RecognitionException {
+		Formato_INSTRUCAO_PARAEXECUCAOContext _localctx = new Formato_INSTRUCAO_PARAEXECUCAOContext(_ctx, getState());
+		enterRule(_localctx, 24, RULE_formato_INSTRUCAO_PARAEXECUCAO);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(136);
+			match(INSTRUCAO_PARAEXECUCAO);
+			setState(137);
+			match(T__15);
+			setState(138);
+			match(STRING);
+			setState(139);
+			match(T__16);
 			}
 		}
 		catch (RecognitionException re) {
@@ -868,57 +959,72 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 
 	public final Chamada_utensilioContext chamada_utensilio() throws RecognitionException {
 		Chamada_utensilioContext _localctx = new Chamada_utensilioContext(_ctx, getState());
-		enterRule(_localctx, 24, RULE_chamada_utensilio);
+		enterRule(_localctx, 26, RULE_chamada_utensilio);
 		int _la;
 		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(122);
+			setState(160);
 			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if (_la==STRING) {
+			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
+			case 1:
+				enterOuterAlt(_localctx, 1);
 				{
-				setState(121);
-				instrucao_para_utensilio();
-				}
-			}
-
-			setState(124);
-			((Chamada_utensilioContext)_localctx).identificador_utensilio = match(IDENTIFICADOR);
-			setState(125);
-			match(T__15);
-			setState(126);
-			((Chamada_utensilioContext)_localctx).identificador_subfuncao_utensilio = match(IDENTIFICADOR);
-			setState(127);
-			match(T__16);
-			setState(136);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if (_la==IDENTIFICADOR || _la==STRING) {
 				{
-				setState(128);
-				parametro();
-				setState(133);
+				setState(142);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				while (_la==T__17) {
+				if (_la==STRING) {
 					{
+					setState(141);
+					instrucao_para_utensilio();
+					}
+				}
+
+				setState(144);
+				((Chamada_utensilioContext)_localctx).identificador_utensilio = match(IDENTIFICADOR);
+				setState(145);
+				match(T__17);
+				setState(146);
+				((Chamada_utensilioContext)_localctx).identificador_subfuncao_utensilio = match(IDENTIFICADOR);
+				setState(147);
+				match(T__15);
+				setState(156);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				if (_la==IDENTIFICADOR || _la==STRING) {
 					{
-					setState(129);
-					match(T__17);
-					setState(130);
+					setState(148);
 					parametro();
-					}
-					}
-					setState(135);
+					setState(153);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
+					while (_la==T__18) {
+						{
+						{
+						setState(149);
+						match(T__18);
+						setState(150);
+						parametro();
+						}
+						}
+						setState(155);
+						_errHandler.sync(this);
+						_la = _input.LA(1);
+					}
+					}
 				}
-				}
-			}
 
-			setState(138);
-			match(T__18);
+				setState(158);
+				match(T__16);
+				}
+				}
+				break;
+			case 2:
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(159);
+				instrucao_para_utensilio();
+				}
+				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -956,12 +1062,12 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 
 	public final ParametroContext parametro() throws RecognitionException {
 		ParametroContext _localctx = new ParametroContext(_ctx, getState());
-		enterRule(_localctx, 26, RULE_parametro);
+		enterRule(_localctx, 28, RULE_parametro);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(140);
+			setState(162);
 			_la = _input.LA(1);
 			if ( !(_la==IDENTIFICADOR || _la==STRING) ) {
 			_errHandler.recoverInline(this);
@@ -1011,15 +1117,15 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 
 	public final Condicional_ateContext condicional_ate() throws RecognitionException {
 		Condicional_ateContext _localctx = new Condicional_ateContext(_ctx, getState());
-		enterRule(_localctx, 28, RULE_condicional_ate);
+		enterRule(_localctx, 30, RULE_condicional_ate);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(142);
+			setState(164);
 			((Condicional_ateContext)_localctx).palavra_reservada_ate = match(T__19);
-			setState(143);
+			setState(165);
 			match(STRING);
-			setState(144);
+			setState(166);
 			chamada_utensilio();
 			}
 		}
@@ -1063,25 +1169,66 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 
 	public final Instrucao_para_utensilioContext instrucao_para_utensilio() throws RecognitionException {
 		Instrucao_para_utensilioContext _localctx = new Instrucao_para_utensilioContext(_ctx, getState());
-		enterRule(_localctx, 30, RULE_instrucao_para_utensilio);
-		int _la;
+		enterRule(_localctx, 32, RULE_instrucao_para_utensilio);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(146);
+			setState(168);
 			((Instrucao_para_utensilioContext)_localctx).STRING1 = match(STRING);
-			setState(147);
+			setState(169);
 			match(IDENTIFICADOR);
-			setState(149);
+			setState(171);
 			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if (_la==STRING) {
+			switch ( getInterpreter().adaptivePredict(_input,13,_ctx) ) {
+			case 1:
 				{
-				setState(148);
+				setState(170);
 				((Instrucao_para_utensilioContext)_localctx).STRING_OPCIONAL = match(STRING);
 				}
+				break;
 			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
 
+	public static class Fim_de_arquivoContext extends ParserRuleContext {
+		public TerminalNode EOF() { return getToken(receitaHTML_Exp_reg_Parser.EOF, 0); }
+		public Fim_de_arquivoContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_fim_de_arquivo; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof receitaHTML_Exp_reg_Listener ) ((receitaHTML_Exp_reg_Listener)listener).enterFim_de_arquivo(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof receitaHTML_Exp_reg_Listener ) ((receitaHTML_Exp_reg_Listener)listener).exitFim_de_arquivo(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof receitaHTML_Exp_reg_Visitor ) return ((receitaHTML_Exp_reg_Visitor<? extends T>)visitor).visitFim_de_arquivo(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final Fim_de_arquivoContext fim_de_arquivo() throws RecognitionException {
+		Fim_de_arquivoContext _localctx = new Fim_de_arquivoContext(_ctx, getState());
+		enterRule(_localctx, 34, RULE_fim_de_arquivo);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(173);
+			match(EOF);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1096,46 +1243,56 @@ public class receitaHTML_Exp_reg_Parser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3 \u009a\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3 \u00b2\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
-		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\3\2\3\2\3"+
-		"\2\3\2\3\2\3\2\3\2\3\2\3\2\3\3\3\3\3\3\3\3\3\4\3\4\3\4\3\4\3\5\3\5\3\5"+
-		"\3\5\3\6\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3\7\7\7A\n\7\f\7\16\7D\13\7\3\b\3"+
-		"\b\3\b\3\b\3\b\3\b\6\bL\n\b\r\b\16\bM\3\b\3\b\3\t\3\t\3\t\3\t\3\t\3\n"+
-		"\3\n\3\n\6\nZ\n\n\r\n\16\n[\3\13\3\13\3\13\3\13\3\13\3\f\3\f\3\f\3\f\3"+
-		"\f\6\fh\n\f\r\f\16\fi\3\r\3\r\3\r\3\r\5\rp\n\r\3\r\6\rs\n\r\r\r\16\rt"+
-		"\3\r\5\rx\n\r\3\r\3\r\3\16\5\16}\n\16\3\16\3\16\3\16\3\16\3\16\3\16\3"+
-		"\16\7\16\u0086\n\16\f\16\16\16\u0089\13\16\5\16\u008b\n\16\3\16\3\16\3"+
-		"\17\3\17\3\20\3\20\3\20\3\20\3\21\3\21\3\21\5\21\u0098\n\21\3\21\2\2\22"+
-		"\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \2\3\3\2\32\33\2\u0094\2\"\3\2"+
-		"\2\2\4+\3\2\2\2\6/\3\2\2\2\b\63\3\2\2\2\n\67\3\2\2\2\f=\3\2\2\2\16E\3"+
-		"\2\2\2\20Q\3\2\2\2\22V\3\2\2\2\24]\3\2\2\2\26b\3\2\2\2\30k\3\2\2\2\32"+
-		"|\3\2\2\2\34\u008e\3\2\2\2\36\u0090\3\2\2\2 \u0094\3\2\2\2\"#\5\4\3\2"+
-		"#$\5\6\4\2$%\5\b\5\2%&\5\n\6\2&\'\5\f\7\2\'(\5\22\n\2()\5\26\f\2)*\7\2"+
-		"\2\3*\3\3\2\2\2+,\7\3\2\2,-\7\4\2\2-.\7\33\2\2.\5\3\2\2\2/\60\7\5\2\2"+
-		"\60\61\7\4\2\2\61\62\7\33\2\2\62\7\3\2\2\2\63\64\7\6\2\2\64\65\7\4\2\2"+
-		"\65\66\7\33\2\2\66\t\3\2\2\2\678\7\7\2\289\7\b\2\29:\7\t\2\2:;\7\4\2\2"+
-		";<\7\33\2\2<\13\3\2\2\2=>\7\n\2\2>B\7\4\2\2?A\5\16\b\2@?\3\2\2\2AD\3\2"+
-		"\2\2B@\3\2\2\2BC\3\2\2\2C\r\3\2\2\2DB\3\2\2\2EF\7\13\2\2FG\7\32\2\2GH"+
-		"\7\f\2\2HI\7\33\2\2IK\7\r\2\2JL\5\20\t\2KJ\3\2\2\2LM\3\2\2\2MK\3\2\2\2"+
-		"MN\3\2\2\2NO\3\2\2\2OP\7\16\2\2P\17\3\2\2\2QR\7\17\2\2RS\7\32\2\2ST\7"+
-		"\f\2\2TU\7\33\2\2U\21\3\2\2\2VW\7\20\2\2WY\7\4\2\2XZ\5\24\13\2YX\3\2\2"+
-		"\2Z[\3\2\2\2[Y\3\2\2\2[\\\3\2\2\2\\\23\3\2\2\2]^\7\13\2\2^_\7\32\2\2_"+
-		"`\7\f\2\2`a\7\33\2\2a\25\3\2\2\2bc\7\21\2\2cd\7\b\2\2de\7\t\2\2eg\7\4"+
-		"\2\2fh\5\30\r\2gf\3\2\2\2hi\3\2\2\2ig\3\2\2\2ij\3\2\2\2j\27\3\2\2\2kl"+
-		"\7\32\2\2lm\7\4\2\2mo\7\r\2\2np\5\36\20\2on\3\2\2\2op\3\2\2\2pr\3\2\2"+
-		"\2qs\5\32\16\2rq\3\2\2\2st\3\2\2\2tr\3\2\2\2tu\3\2\2\2uw\3\2\2\2vx\7\31"+
-		"\2\2wv\3\2\2\2wx\3\2\2\2xy\3\2\2\2yz\7\16\2\2z\31\3\2\2\2{}\5 \21\2|{"+
-		"\3\2\2\2|}\3\2\2\2}~\3\2\2\2~\177\7\32\2\2\177\u0080\7\22\2\2\u0080\u0081"+
-		"\7\32\2\2\u0081\u008a\7\23\2\2\u0082\u0087\5\34\17\2\u0083\u0084\7\24"+
-		"\2\2\u0084\u0086\5\34\17\2\u0085\u0083\3\2\2\2\u0086\u0089\3\2\2\2\u0087"+
-		"\u0085\3\2\2\2\u0087\u0088\3\2\2\2\u0088\u008b\3\2\2\2\u0089\u0087\3\2"+
-		"\2\2\u008a\u0082\3\2\2\2\u008a\u008b\3\2\2\2\u008b\u008c\3\2\2\2\u008c"+
-		"\u008d\7\25\2\2\u008d\33\3\2\2\2\u008e\u008f\t\2\2\2\u008f\35\3\2\2\2"+
-		"\u0090\u0091\7\26\2\2\u0091\u0092\7\33\2\2\u0092\u0093\5\32\16\2\u0093"+
-		"\37\3\2\2\2\u0094\u0095\7\33\2\2\u0095\u0097\7\32\2\2\u0096\u0098\7\33"+
-		"\2\2\u0097\u0096\3\2\2\2\u0097\u0098\3\2\2\2\u0098!\3\2\2\2\rBM[iotw|"+
-		"\u0087\u008a\u0097";
+		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
+		"\4\23\t\23\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\3\3\3\3\3\3\3\3\4\3\4"+
+		"\3\4\3\4\3\5\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3\7\7\7E\n\7"+
+		"\f\7\16\7H\13\7\3\b\3\b\3\b\3\b\3\b\3\b\6\bP\n\b\r\b\16\bQ\3\b\3\b\3\t"+
+		"\3\t\3\t\3\t\3\t\3\n\3\n\3\n\6\n^\n\n\r\n\16\n_\3\13\3\13\3\13\3\13\3"+
+		"\13\3\f\3\f\3\f\3\f\3\f\6\fl\n\f\r\f\16\fm\3\r\3\r\5\rr\n\r\3\r\3\r\3"+
+		"\r\5\rw\n\r\3\r\6\rz\n\r\r\r\16\r{\3\r\7\r\177\n\r\f\r\16\r\u0082\13\r"+
+		"\7\r\u0084\n\r\f\r\16\r\u0087\13\r\3\r\3\r\3\16\3\16\3\16\3\16\3\16\3"+
+		"\17\5\17\u0091\n\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\7\17\u009a\n\17"+
+		"\f\17\16\17\u009d\13\17\5\17\u009f\n\17\3\17\3\17\5\17\u00a3\n\17\3\20"+
+		"\3\20\3\21\3\21\3\21\3\21\3\22\3\22\3\22\5\22\u00ae\n\22\3\23\3\23\3\23"+
+		"\2\2\24\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$\2\3\3\2\32\33\2\u00ad"+
+		"\2&\3\2\2\2\4/\3\2\2\2\6\63\3\2\2\2\b\67\3\2\2\2\n;\3\2\2\2\fA\3\2\2\2"+
+		"\16I\3\2\2\2\20U\3\2\2\2\22Z\3\2\2\2\24a\3\2\2\2\26f\3\2\2\2\30o\3\2\2"+
+		"\2\32\u008a\3\2\2\2\34\u00a2\3\2\2\2\36\u00a4\3\2\2\2 \u00a6\3\2\2\2\""+
+		"\u00aa\3\2\2\2$\u00af\3\2\2\2&\'\5\4\3\2\'(\5\6\4\2()\5\b\5\2)*\5\n\6"+
+		"\2*+\5\f\7\2+,\5\22\n\2,-\5\26\f\2-.\5$\23\2.\3\3\2\2\2/\60\7\3\2\2\60"+
+		"\61\7\4\2\2\61\62\7\33\2\2\62\5\3\2\2\2\63\64\7\5\2\2\64\65\7\4\2\2\65"+
+		"\66\7\33\2\2\66\7\3\2\2\2\678\7\6\2\289\7\4\2\29:\7\33\2\2:\t\3\2\2\2"+
+		";<\7\7\2\2<=\7\b\2\2=>\7\t\2\2>?\7\4\2\2?@\7\33\2\2@\13\3\2\2\2AB\7\n"+
+		"\2\2BF\7\4\2\2CE\5\16\b\2DC\3\2\2\2EH\3\2\2\2FD\3\2\2\2FG\3\2\2\2G\r\3"+
+		"\2\2\2HF\3\2\2\2IJ\7\13\2\2JK\7\32\2\2KL\7\f\2\2LM\7\33\2\2MO\7\r\2\2"+
+		"NP\5\20\t\2ON\3\2\2\2PQ\3\2\2\2QO\3\2\2\2QR\3\2\2\2RS\3\2\2\2ST\7\16\2"+
+		"\2T\17\3\2\2\2UV\7\17\2\2VW\7\32\2\2WX\7\f\2\2XY\7\33\2\2Y\21\3\2\2\2"+
+		"Z[\7\20\2\2[]\7\4\2\2\\^\5\24\13\2]\\\3\2\2\2^_\3\2\2\2_]\3\2\2\2_`\3"+
+		"\2\2\2`\23\3\2\2\2ab\7\13\2\2bc\7\32\2\2cd\7\f\2\2de\7\33\2\2e\25\3\2"+
+		"\2\2fg\7\21\2\2gh\7\b\2\2hi\7\t\2\2ik\7\4\2\2jl\5\30\r\2kj\3\2\2\2lm\3"+
+		"\2\2\2mk\3\2\2\2mn\3\2\2\2n\27\3\2\2\2oq\7\32\2\2pr\7\30\2\2qp\3\2\2\2"+
+		"qr\3\2\2\2rs\3\2\2\2st\7\4\2\2tv\7\r\2\2uw\5 \21\2vu\3\2\2\2vw\3\2\2\2"+
+		"w\u0085\3\2\2\2xz\5\34\17\2yx\3\2\2\2z{\3\2\2\2{y\3\2\2\2{|\3\2\2\2|\u0080"+
+		"\3\2\2\2}\177\5\32\16\2~}\3\2\2\2\177\u0082\3\2\2\2\u0080~\3\2\2\2\u0080"+
+		"\u0081\3\2\2\2\u0081\u0084\3\2\2\2\u0082\u0080\3\2\2\2\u0083y\3\2\2\2"+
+		"\u0084\u0087\3\2\2\2\u0085\u0083\3\2\2\2\u0085\u0086\3\2\2\2\u0086\u0088"+
+		"\3\2\2\2\u0087\u0085\3\2\2\2\u0088\u0089\7\16\2\2\u0089\31\3\2\2\2\u008a"+
+		"\u008b\7\31\2\2\u008b\u008c\7\22\2\2\u008c\u008d\7\33\2\2\u008d\u008e"+
+		"\7\23\2\2\u008e\33\3\2\2\2\u008f\u0091\5\"\22\2\u0090\u008f\3\2\2\2\u0090"+
+		"\u0091\3\2\2\2\u0091\u0092\3\2\2\2\u0092\u0093\7\32\2\2\u0093\u0094\7"+
+		"\24\2\2\u0094\u0095\7\32\2\2\u0095\u009e\7\22\2\2\u0096\u009b\5\36\20"+
+		"\2\u0097\u0098\7\25\2\2\u0098\u009a\5\36\20\2\u0099\u0097\3\2\2\2\u009a"+
+		"\u009d\3\2\2\2\u009b\u0099\3\2\2\2\u009b\u009c\3\2\2\2\u009c\u009f\3\2"+
+		"\2\2\u009d\u009b\3\2\2\2\u009e\u0096\3\2\2\2\u009e\u009f\3\2\2\2\u009f"+
+		"\u00a0\3\2\2\2\u00a0\u00a3\7\23\2\2\u00a1\u00a3\5\"\22\2\u00a2\u0090\3"+
+		"\2\2\2\u00a2\u00a1\3\2\2\2\u00a3\35\3\2\2\2\u00a4\u00a5\t\2\2\2\u00a5"+
+		"\37\3\2\2\2\u00a6\u00a7\7\26\2\2\u00a7\u00a8\7\33\2\2\u00a8\u00a9\5\34"+
+		"\17\2\u00a9!\3\2\2\2\u00aa\u00ab\7\33\2\2\u00ab\u00ad\7\32\2\2\u00ac\u00ae"+
+		"\7\33\2\2\u00ad\u00ac\3\2\2\2\u00ad\u00ae\3\2\2\2\u00ae#\3\2\2\2\u00af"+
+		"\u00b0\7\2\2\3\u00b0%\3\2\2\2\20FQ_mqv{\u0080\u0085\u0090\u009b\u009e"+
+		"\u00a2\u00ad";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

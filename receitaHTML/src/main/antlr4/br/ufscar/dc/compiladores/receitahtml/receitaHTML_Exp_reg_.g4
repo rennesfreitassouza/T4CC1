@@ -10,8 +10,8 @@ PALAVRAS_RESERVADAS /*Expressão regular definida para identificar palavras rese
 NUM_INT /*Expressão regular definida para reconhecer números inteiros*/
     :('0'..'9')+;
 
-INSTRUCAO_PARAEXECUCAO
-    : ('A'..'Z')+ ('_') ('A'..'Z')*
+INSTRUCAO_PARAEXECUCAO /*Expressão regular definida para reconhecer a palavra chave 'instrucao_', que indica que, após ela, virá uma cadeia de caracteres.*/
+    : 'instrucao_'
     ;
 
 IDENTIFICADOR /*Expressão regular definida para reconhecer identificadores (nomes de variáveis, nomes de funções e identificadores de chamadas de funções).*/
@@ -44,7 +44,7 @@ ErrorCharacter /*Expressão regular definida para reconhecer qualquer caractere 
 
 /*Início das regras sintáticas:*/
 receita /*Regra definidas para reconhecer a estrutura básica de um código na linguagem receitahtml.*/
-        : titulo descricao rendimento tempo_de_preparo utensilios ingredientes modo_de_preparo EOF
+        : titulo descricao rendimento tempo_de_preparo utensilios ingredientes modo_de_preparo fim_de_arquivo
         ;
 
 titulo /*Regra definida para reconhecer o padrão de formação de um título na linguagem receitaHTML.*/
@@ -89,15 +89,20 @@ modo_de_preparo /*Regra definida para reconhecer o padrão de formação do modo
 
 
 instrucoes_preparacao /*Regra definida para reconhecer o padrão de formação das instruções de preparação de uma receita escrita na linguagem receitaHTML.*/
-        : IDENTIFICADOR ':' '{'
-                (condicional_ate)? (chamada_utensilio)+  (INSTRUCAO_PARAEXECUCAO)?
+        : IDENTIFICADOR (NUM_INT)? ':' '{'
+                (condicional_ate)? ((chamada_utensilio)+  (formato_INSTRUCAO_PARAEXECUCAO)*)* /*ORDEM PODE RESULTAR EM ERRO. mas uma instrução deveria ser em relação a um utensílio(?)*/
             '}'
         ;
 
+formato_INSTRUCAO_PARAEXECUCAO /*Expressão regular definida para reconhecer o padrão de uma possível instrução que poderia indicar o que fazer no passo da recenta em que ela for aplicável.*/
+    : INSTRUCAO_PARAEXECUCAO '(' STRING ')' 
+    ;
+
 chamada_utensilio /*Regra definida para reconhecer o padrão de formação de uma chamada a uma função e de sua respectiva subfunção.*/
-    :   (instrucao_para_utensilio)?
+    :   ((instrucao_para_utensilio)?
             identificador_utensilio=IDENTIFICADOR '.' identificador_subfuncao_utensilio=IDENTIFICADOR 
-                '(' (parametro ('+' parametro)*)? ')'
+                '(' (parametro ('+' parametro)*)? ')')
+        | instrucao_para_utensilio
     ;
 
 parametro /*Regra definida para reconhecer os dois padrões de formação de um possível parâmetro da linguagem receitaHTML.*/
@@ -108,6 +113,10 @@ condicional_ate /*Regra definida para reconhecer o padrão de formação de um c
     : palavra_reservada_ate='ATE' STRING chamada_utensilio
     ;
 
-instrucao_para_utensilio /*Regra definida para reconhecer o padrão de formação de uma instrução para um utensílio que não foi definida e precisa ser escrita para que a receita esteja completa.*/
+instrucao_para_utensilio /*Regra definida para reconhecer o padrão de formação de uma instrução para saber o que fazer com um utensílio que não foi definida e precisa ser escrita para que a receita esteja completa.*/
     : STRING1=STRING IDENTIFICADOR (STRING_OPCIONAL=STRING)?
+    ;
+
+fim_de_arquivo /*Regra definida para ser usada pelo analisador semântico identificar se todos os ingredientes declarados foram utilizados nos utensílios.*/
+    :   EOF
     ;

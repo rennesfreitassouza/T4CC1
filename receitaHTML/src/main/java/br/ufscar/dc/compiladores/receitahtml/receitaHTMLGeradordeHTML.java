@@ -4,13 +4,14 @@ public class receitaHTMLGeradordeHTML extends receitaHTML_Exp_reg_BaseVisitor<Vo
 
     StringBuilder saida; // Para construir o código HTML é usado a classe StringBuilder. O objeto saida do tipo StringBuilder é um acumulador de Strings.
     Escopo escopoReceitaHTML; // Para construir o código HTML é usado a classe Escopo.
-
+    int duracaoTotal = -1;
     public receitaHTMLGeradordeHTML() {
         escopoReceitaHTML = new Escopo();
         saida = new StringBuilder();
     }
 
     @Override
+    //Visitante que chama todos os outros para geração de código.
     public Void visitReceita(receitaHTML_Exp_reg_Parser.ReceitaContext ctx) {
         saida.append("<doctype html>\n");
         saida.append("<html lang=\"pt-br\">\n");
@@ -27,10 +28,15 @@ public class receitaHTMLGeradordeHTML extends receitaHTML_Exp_reg_BaseVisitor<Vo
         visitTitulo(ctx.titulo()); 
         visitDescricao(ctx.descricao());
         visitRendimento(ctx.rendimento()); 
+        
         visitTempo_de_preparo(ctx.tempo_de_preparo());
+        
         visitUtensilios(ctx.utensilios());
         visitIngredientes(ctx.ingredientes());
         visitModo_de_preparo(ctx.modo_de_preparo());
+        
+        visitTempo_de_preparo(ctx.tempo_de_preparo());
+        
         saida.append("</body>\n");
         saida.append("</html>");
 
@@ -65,10 +71,22 @@ public class receitaHTMLGeradordeHTML extends receitaHTML_Exp_reg_BaseVisitor<Vo
     
     @Override
     // Inserção da string referente ao tempo de preparo da receita no objeto desta classe chamado saida.
+    // Caso nenhum número inteiro que representa a duração do tempo de preparo de cada passo, ou apenas o número 0 ou menor que 0 for inserido em todos os passos
+    // no código na linguagem receitaHTML, o valor impresso no arquivo de saida não será contabilizado e a string entre aspas presente no código 
+    // será impressa (ela deve sempre estar presente no código).
     public Void visitTempo_de_preparo(receitaHTML_Exp_reg_Parser.Tempo_de_preparoContext ctx){
         String tempo_de_preparoSemAspas = ctx.STRING().getText().replaceAll("\"", "");
-        saida.append("<strong>Tempo de preparo: </strong>\n");
-        saida.append(tempo_de_preparoSemAspas+ "<br>\n");
+        if (duracaoTotal == -1){
+            saida.append("<strong>Tempo de preparo: </strong>\n");
+            saida.append(tempo_de_preparoSemAspas+ "<br>\n");
+            duracaoTotal = 0;
+        }
+        else
+        {
+            if(duracaoTotal > 0){
+                saida.replace(saida.indexOf(tempo_de_preparoSemAspas+ "<br>\n"), saida.indexOf("<strong>Utensílios:</strong>\n"), duracaoTotal+" minutos.<br>\n");
+            }
+        }
         return null;
     }
     
@@ -168,6 +186,9 @@ public class receitaHTMLGeradordeHTML extends receitaHTML_Exp_reg_BaseVisitor<Vo
     // Verificação da existencia das regras que fazem parte desta regra que reconhecem certos padrões.
     // Assim, o modo de preparo pode ser gerado.
     public Void visitInstrucoes_preparacao(receitaHTML_Exp_reg_Parser.Instrucoes_preparacaoContext ctx){
+        if (ctx.NUM_INT() != null){
+            duracaoTotal += Integer.parseInt(ctx.NUM_INT().getText());
+        }
         if(ctx.condicional_ate() != null){
             visitCondicional_ate(ctx.condicional_ate());
             saida.append(".");
@@ -175,12 +196,12 @@ public class receitaHTMLGeradordeHTML extends receitaHTML_Exp_reg_BaseVisitor<Vo
         
         for (receitaHTML_Exp_reg_Parser.Chamada_utensilioContext chamada_utensilio : ctx.chamada_utensilio()){
             visitChamada_utensilio(chamada_utensilio);
-            saida.append(".");
         }
         
-        if(ctx.INSTRUCAO_PARAEXECUCAO() != null){
-            saida.append (" "+ctx.INSTRUCAO_PARAEXECUCAO().getText().toLowerCase().replaceAll("_", " "));
-            saida.append(".");
+        if(!ctx.formato_INSTRUCAO_PARAEXECUCAO().isEmpty()){
+            for  (receitaHTML_Exp_reg_Parser.Formato_INSTRUCAO_PARAEXECUCAOContext formato_INSTRUCAO_PARAEXECUCAO : ctx.formato_INSTRUCAO_PARAEXECUCAO()){
+                saida.append (" "+formato_INSTRUCAO_PARAEXECUCAO.STRING().getText().replaceAll("\"", " "));
+            }
         }
         
         //O que é melhor para otimização da execução do compilador: um condicional + um comando, ou varios comandos e nenhum condicional?
@@ -189,40 +210,44 @@ public class receitaHTMLGeradordeHTML extends receitaHTML_Exp_reg_BaseVisitor<Vo
     }
     
     @Override
-    //
+    // Este método insere no objeto saida desta classe das strings as strings necessárias para que o modo de preparo seja impresso na formatação
+    // padrão da linguagem receitaHTML.
     public Void visitChamada_utensilio(receitaHTML_Exp_reg_Parser.Chamada_utensilioContext ctx){
         if(ctx.instrucao_para_utensilio() != null){
             visitInstrucao_para_utensilio(ctx.instrucao_para_utensilio());
         }
-        
-        saida.append(" "+escopoReceitaHTML.getEscopoTabela().getDescricao(ctx.identificador_utensilio.getText()+"."+ctx.identificador_subfuncao_utensilio.getText()));
-        saida.append(" "+escopoReceitaHTML.getEscopoTabela().getDescricao(ctx.identificador_utensilio.getText()));
-        
-        if (!ctx.parametro().isEmpty()){
-            saida.append(":");
-        }
-        
-        int qtdparametros = ctx.parametro().size();
-        for(receitaHTML_Exp_reg_Parser.ParametroContext parametro : ctx.parametro()){
-            if(parametro.IDENTIFICADOR() != null)
-            {
-                saida.append(" "+escopoReceitaHTML.getEscopoTabela().getDescricao(parametro.getText()));
+        if (ctx.identificador_utensilio != null){
+            saida.append(" "+escopoReceitaHTML.getEscopoTabela().getDescricao(ctx.identificador_utensilio.getText()+"."
+                            +ctx.identificador_subfuncao_utensilio.getText()));
+            saida.append(" "+escopoReceitaHTML.getEscopoTabela().getDescricao(ctx.identificador_utensilio.getText()));
+
+            if (!ctx.parametro().isEmpty()){
+                saida.append(":");
             }
-            else{
-                if(parametro.STRING() != null){
-                    saida.append(" "+parametro.STRING().getText().replaceAll("\"", ""));
-                }
-            }
-            qtdparametros--;
-            if (qtdparametros != 0){
-                if (qtdparametros != 1){
-                    saida.append(",");
+
+            int qtdparametros = ctx.parametro().size();
+            for(receitaHTML_Exp_reg_Parser.ParametroContext parametro : ctx.parametro()){
+                if(parametro.IDENTIFICADOR() != null)
+                {
+                    saida.append(" "+escopoReceitaHTML.getEscopoTabela().getDescricao(parametro.getText()));
                 }
                 else{
-                    saida.append(" e");
+                    if(parametro.STRING() != null){
+                        saida.append(" "+parametro.STRING().getText().replaceAll("\"", ""));
+                    }
                 }
+                qtdparametros--;
+                if (qtdparametros != 0){
+                    if (qtdparametros != 1){
+                        saida.append(",");
+                    }
+                    else{
+                        saida.append(" e");
+                    }
+                }
+
             }
-                
+            saida.append(".");
         }
         return null;
     }
@@ -241,6 +266,8 @@ public class receitaHTMLGeradordeHTML extends receitaHTML_Exp_reg_BaseVisitor<Vo
     }
     
     @Override
+    // Este visitor faz o armazenamento no objeto saida desta classe das strings que precisam ser armazenadas no arquivo HTML de saída para que
+    // a instrução do que fazer com um utensílio apareça na receita formatada em HTML.
     public Void visitInstrucao_para_utensilio(receitaHTML_Exp_reg_Parser.Instrucao_para_utensilioContext ctx){
         saida.append(ctx.STRING1.getText().replaceAll("\"", ""));
         saida.append(" "+escopoReceitaHTML.getEscopoTabela().getDescricao(ctx.IDENTIFICADOR().getText()));

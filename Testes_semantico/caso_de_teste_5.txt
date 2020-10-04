@@ -37,29 +37,29 @@ INGREDIENTES: //Serão formatados de acordo com a linguagem receitaHTML
 MODO DE PREPARO: //Serão formados de acordo com a ordem que foram chamados.
 i1: {
     ATE "virar um creme"
-        blender.beat(ovos + oleo + adocOUacucar + agua + cenoura) //Primeiro identificador para ingrediente não declarado.
+        blender.beat(ovos + ovo + oleo + adocOUacucar + agua + cenoura) //Primeiro identificador para ingrediente não declarado.
     bowl.reservar()
 }
 
 i2: {
-    bowl.coloque(bowl + "creme" + aveia) // Primeiro idenficador para ingrediente de categoria diferente da de 'ingrediente'.
-    MISTURE_BEM
+    bowl.coloque(bowl + farinha + "creme" + aveia) // Primeiro idenficador para ingrediente de categoria diferente da de 'ingrediente'.
+    instrucao_("Misture bem.")
 }
 
 i3: {
-    bowl.coloque("creme" + teste ) // identificador, que não é identificado como o um primeiro identificador, mas que também não existe na tabela
-    MISTURE_DEVAGAR
+    bowl.coloque("creme" + fermento + teste ) // identificador, que não é identificado como o um primeiro identificador, mas que também não existe na tabela.
+    instrucao_("Misture devagar.")
 }
 
 i4: {
     "unte a" forma "com óleo de coco" 
     forma.coloque("metade da massa do passo anterior")
-    ESPALHE_BEM
+    instrucao_("Espalhe bem.")
 }
 
 i5: {
-    bowl.coloque("a outra metade da massa" + forma) // identificador, que não é identificado como o um primeiro identificador, mas que não é classificado como um ingrediente.
-    MISTURE_BEM
+    bowl.coloque("a outra metade da massa" + cacau + forma) // identificador, que não é identificado como o um primeiro identificador, mas que não é classificado como um ingrediente.
+    instrucao_("Misture bem.")
 }
 
 i6: {

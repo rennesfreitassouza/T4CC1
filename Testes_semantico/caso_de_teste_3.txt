@@ -31,7 +31,8 @@ INGREDIENTES: //Serão formatados de acordo com a linguagem receitaHTML
 - aveia = "1/2 xícara (chá) de aveia"
 - farinha = "1/2 xícara (chá) de farinha de coco ou de arroz"
 - cacau = "4 colheres (sopa) de cacau em pó"
-- chocolate = "1 colher (sopa) de fermento em pó"
+- fermento = "1 colher (sopa) de fermento em pó"    
+- chocolate = "Chocolate 70% picado a gosto"
 - chocolate = "Chocolate 70% picado a gosto"
 
 MODO DE PREPARO: //Serão formados de acordo com a ordem que foram chamados.
@@ -43,23 +44,23 @@ i1: {
 
 i2: {
     bowl.coloque(farinha + "creme" + aveia)
-    MISTURE_BEM
+    instrucao_("Misture bem.")
 }
 
 i3: {
     bowl.coloque("creme" + fermento)
-    MISTURE_DEVAGAR
+    instrucao_("Misture devagar.")
 }
 
 i4: {
     "unte a" forma "com óleo de coco" 
     forma.coloque("metade da massa do passo anterior")
-    ESPALHE_BEM
+    instrucao_("Espalhe bem.")
 }
 
 i5: {
     bowl.coloque("a outra metade da massa" + cacau)
-    MISTURE_BEM
+    instrucao_("Misture bem.")
 }
 
 i6: {

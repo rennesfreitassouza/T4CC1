@@ -1,0 +1,4 @@
+caso_de_teste_1: nesse caso de teste, o tempo de duração é calculado a partir da duração de cada passo.
+caso_de_teste_2: nesse caso de teste, o tempo de duração final é impresso assim como na cadeia de caracteres entre aspas após TEMPO DE PREPARO: (pois a duração de tempo de cada passo não foi inserida).
+caso_de_teste_3: nesse caso de teste, o tempo de duração final é impresso assim como na cadeia de caracteres entre aspas após TEMPO DE PREPARO: (pois a duração de tempo de cada passo inserida foi 0).
+escrever novos códigos na linguagem receitaHTML.

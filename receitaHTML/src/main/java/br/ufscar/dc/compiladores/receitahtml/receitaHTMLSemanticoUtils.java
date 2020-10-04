@@ -33,4 +33,9 @@ public class receitaHTMLSemanticoUtils {
     static void insereErroIngredienteInvalido(Token identificador_ingrediente) {
         errosSemanticos.add("Linha "+identificador_ingrediente.getLine()+": identificador "+identificador_ingrediente.getText()+" para ingrediente inválido.");
     }
+    
+    static void insereAvisoDeIngredienteNaoUtilizado(Token ingredienteNaoUtilizado){
+        errosSemanticos.add("Aviso: ingrediente "+ingredienteNaoUtilizado.getText()+" declarado na linha "+ingredienteNaoUtilizado.getLine()+" não utilizado na receita.");
+
+    }
 }

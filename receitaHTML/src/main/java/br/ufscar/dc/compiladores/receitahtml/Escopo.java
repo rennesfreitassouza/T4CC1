@@ -21,6 +21,7 @@ public class Escopo {
                                     // mas sem remover.
     }
     
+    //Método ainda não usado.
     public void abandonarEscopo()
     {
         EscopoTabela.pop(); // Remove um item do topo da lista chamada EscopoTabela.

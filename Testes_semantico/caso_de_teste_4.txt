@@ -44,23 +44,23 @@ i1: {
 
 i2: {
     ovo.coloque(farinha + "creme" + aveia) // Caso de identificador que está na tabela, mas não é um utensílio.
-    MISTURE_BEM
+    instrucao_("Misture bem.")
 }
 
 i3: {
     bowl.espalhe("creme" + fermento) // Caso de uma subfunção que não está definida naquela função.
-    MISTURE_DEVAGAR
+    instrucao_("Misture devagar.")
 }
 
 i4: {
     "unte a" forma "com óleo de coco" 
     forma.coloque("metade da massa do passo anterior")
-    ESPALHE_BEM
+    instrucao_("Espalhe bem.")
 }
 
 i5: {
     bowl.coloque("a outra metade da massa" + cacau)
-    MISTURE_BEM
+    instrucao_("Misture bem.")
 }
 
 i6: {

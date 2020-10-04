@@ -1,0 +1,61 @@
+NOME: "Ovos rancheiros"
+DESCRICAO: "Receita prática de fazer"
+RENDIMENTO: "3 porções"
+TEMPO DE PREPARO: "30 hora"
+
+UTENSILIOS:
+- container = "recipiente" {
+    * place = "Coloque em um"
+}
+
+- baking_sheet = "assadeira"{
+    * distribute = "Distribua em uma"
+}
+
+- forno = "forno"{
+    * pre_aqueca = "Pré aqueça o"
+    * leve = "Leve ao"
+}
+
+- pan = "panela"{
+    * refogue = "Refogue na"
+    * place = "Coloque na"
+    * acrescente = "Acrescente na"
+}
+
+- bowl = "tigela"{
+    * place = "Coloque em uma"
+}
+
+INGREDIENTES: 
+- azeite = "1 colher de sopa de azeite"
+- cebola = "1 cebola pequena picada"
+- alho = "1 dente de alho ralado"
+- paprica = "1 colher de chá de páprica doce ou picante"
+- tomate = "1/2 tomate picado sem sementes"
+- molho_tomate = "1 xícara de chá de molho de tomate caseiro"
+- ovo = "3 ovos"
+- sal = "sal a gosto"
+- salsinha = "salsinha a gosto"
+- pimenta = "pimenta a gosto"
+MODO DE PREPARO:
+i1 13:{
+    pan.refogue(azeite + cebola + alho)
+    instrucao_("Até começarem a murçar.")
+}
+
+i2 7: {
+    pan.place("o resultado do passo anterior" + paprica + tomate)
+    instrucao_("Mexa bem.")
+    pan.acrescente(molho_tomate)
+    instrucao_("Deixe ferver por 5 minutos.")
+}
+
+i3 8: {
+    pan.acrescente("o resultado do passo anterior" + ovo)
+    instrucao_("Não quebre os ovos um em cima do outro nem mexa após quebrá-los.")
+}
+
+i4 2: {
+    pan.acrescente(sal + salsinha + pimenta)
+}

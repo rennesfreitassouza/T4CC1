@@ -1,4 +1,4 @@
-Erros léxicos analisados:
-- cometário com apenas uma barra.
-- cadeia não fechada.
-- símbolo não identificado
+Erros léxicos analisados (caso 1 não contém nenhum erro léxico.):
+- caso_de_teste_2: cometário com apenas uma barra.
+- caso_de_teste_3: cadeia não fechada.
+- caso_de_teste_4: símbolo não identificado

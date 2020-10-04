@@ -35,43 +35,43 @@ INGREDIENTES: //Serão formatados de acordo com a linguagem receitaHTML
 - chocolate = "Chocolate 70% picado a gosto"
 
 MODO DE PREPARO: //Serão formados de acordo com a ordem que foram chamados.
-i1: {
+i1 6: {
     ATE "virar um creme"
         blender.beat(ovo + oleo + adocOUacucar + agua + cenoura)
     bowl.reservar()
 }
 
-i2: {
+i2 5: {
     bowl.coloque(farinha + "o creme" + aveia)
-    MISTURE_BEM
+    instrucao_("Misture bem.")
 }
 
-i3: {
+i3 5: {
     bowl.coloque("o creme" + fermento)
-    MISTURE_DEVAGAR
+    instrucao_("Misture devagar.")
 }
 
-i4: {
+i4 5: {
     "unte a" forma "com óleo de coco" 
     forma.coloque("metade da massa do passo anterior")
-    ESPALHE_BEM
+    instrucao_("Espalhe bem.")
 }
 
-i5: {
+i5 5: {
     bowl.coloque("a outra metade da massa" + cacau)
-    MISTURE_BEM
+    instrucao_("Misture bem.")
 }
 
-i6: {
+i6 5: {
     forma.coloque("o resultado do passo anterior sobre a massa de cenoura")
     colher.espalhe()
 }
 
-i7: {
+i7 5: {
     forma.coloque(chocolate + "resultado do passo anterior")
 }
 
-i8: {
+i8 6: {
     forno.pre_aqueca()
     forno.leve_ao("o resultado do passo anterior e deixe por 30 minutos a 180 graus")
 }

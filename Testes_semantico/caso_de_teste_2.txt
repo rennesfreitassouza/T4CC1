@@ -10,6 +10,7 @@ UTENSILIOS: // Serão formatados de acordo com a linguagem receitaHTML
 - bowl = "tigela"{
     * reservar = "reserve o conteúdo em uma"
     * reservar = "coloque na"
+    * coloque = "coloque na"
 }
 - forma = "forma"{
     * coloque = "coloque na"
@@ -43,23 +44,23 @@ i1: {
 
 i2: {
     bowl.coloque(farinha + "creme" + aveia)
-    MISTURE_BEM
+    instrucao_("Misture bem.")
 }
 
 i3: {
     bowl.coloque("creme" + fermento)
-    MISTURE_DEVAGAR
+    instrucao_("Misture devagar.")
 }
 
 i4: {
     "unte a" forma "com óleo de coco" 
     forma.coloque("metade da massa do passo anterior")
-    ESPALHE_BEM
+    instrucao_("Espalhe bem.")
 }
 
 i5: {
     bowl.coloque("a outra metade da massa" + cacau)
-    MISTURE_BEM
+    instrucao_("Misture bem.")
 }
 
 i6: {

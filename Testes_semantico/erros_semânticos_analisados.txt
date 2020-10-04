@@ -1,5 +1,6 @@
-- checagem de identificadores para utensílios já declarados.
-- verificação de um mesmo identificador dado para utilidades diferentes de um mesmo utensílio.
-- verificação de um mesmo identificador dado para ingredientes diferentes.
-- verificação de identificador para utensílio não declarado ou que não está na categoria certa ou que chama uma subfunção que não faz parte de sua declaração.
-- verificação de identificador para ingrediente e checagem de categoria dos identificadores no modo de preparo.
+caso_de_teste_1: checagem de identificadores para utensílios já declarados.
+caso_de_teste_2: verificação de um mesmo identificador dado para utilidades diferentes de um mesmo utensílio.
+caso_de_teste_3: verificação de um mesmo identificador dado para ingredientes diferentes.
+caso_de_teste_4: verificação de identificador para utensílio não declarado ou que não está na categoria certa ou que chama uma subfunção que não faz parte de sua declaração.
+caso_de_teste_5: verificação de identificador para ingrediente e checagem de categoria dos identificadores no modo de preparo.
+caso_de_teste_6: verificação de ingrediente declarado mas não utilizado no modo de preparo (está faltando o ingrediente fermento em i3).

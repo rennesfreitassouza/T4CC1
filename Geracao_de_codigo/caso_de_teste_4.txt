@@ -1,0 +1,73 @@
+NOME: "Lentilha com legumes assados"
+DESCRICAO: "Receita prática de fazer"
+RENDIMENTO: "4 porções"
+TEMPO DE PREPARO: "1 hora"
+
+UTENSILIOS:
+- container = "recipiente" {
+    * place = "Coloque em um"   
+}
+
+- baking_sheet = "assadeira"{
+    * distribute = "Distribua em uma"
+}
+
+- forno = "forno"{
+    * pre_aqueca = "Pré aqueça o"
+    * leve = "Leve ao"
+}
+
+- pan = "panela"{
+    * warm_up = "Aqueça em fogo médio na"
+    * add = "Adicione na"
+}
+
+- bowl = "tigela"{
+    * place = "Coloque em uma"
+}
+
+
+INGREDIENTES: 
+- cenoura = "1 cenoura média cortada em palitos"
+- cebola = "1 cebola média cortada em pétalas"
+- paprica = "1 colher de chá de páprica"
+- mel = "1 colher de sopa de mel"
+- azeite = "azeite de oliva"
+- lentilha = "1 xícara de chá de lentilha"
+- sal = "sal a gosto"
+- agua = "água"
+MODO DE PREPARO:
+i1 20:{
+    container.place(lentilha + agua)
+    instrucao_("Deixe de molho por 20 minutos.")
+}
+
+i2 5: {
+    container.place(paprica + mel + azeite)
+    instrucao_("Misture bem.")
+}
+
+i3 3: {
+    baking_sheet.distribute(cenoura + cebola)
+    instrucao_("Tempere com o resultado o passo anterior.")
+}
+
+i4 41: {
+    forno.pre_aqueca()
+    forno.leve("o resultado do passo anterior, por 40 minutos à 180 graus")
+}
+
+i5 1: {
+    "Descarte do" container "a água da lentilha"
+}
+
+i6 20: {
+    pan.warm_up(azeite)
+    pan.add("o resultado do passo anterior" + agua + sal)
+    instrucao_("Deixe cozinhar por 20 minutos.")
+    instrucao_("Descarte água após cozimento.")
+}
+
+i7 2: {
+    bowl.place("o resultado do passo anterior e os legumes assados")
+}

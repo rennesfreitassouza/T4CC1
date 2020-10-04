@@ -160,6 +160,18 @@ public class receitaHTML_Exp_reg_BaseListener implements receitaHTML_Exp_reg_Lis
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterFormato_INSTRUCAO_PARAEXECUCAO(receitaHTML_Exp_reg_Parser.Formato_INSTRUCAO_PARAEXECUCAOContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFormato_INSTRUCAO_PARAEXECUCAO(receitaHTML_Exp_reg_Parser.Formato_INSTRUCAO_PARAEXECUCAOContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterChamada_utensilio(receitaHTML_Exp_reg_Parser.Chamada_utensilioContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -203,6 +215,18 @@ public class receitaHTML_Exp_reg_BaseListener implements receitaHTML_Exp_reg_Lis
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitInstrucao_para_utensilio(receitaHTML_Exp_reg_Parser.Instrucao_para_utensilioContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFim_de_arquivo(receitaHTML_Exp_reg_Parser.Fim_de_arquivoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFim_de_arquivo(receitaHTML_Exp_reg_Parser.Fim_de_arquivoContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
