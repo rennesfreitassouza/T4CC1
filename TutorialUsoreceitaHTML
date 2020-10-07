@@ -1,2 +1,60 @@
 #Descrição de como utilizar a linguagem e o compilador:
 
+Para começar a escrever em receitaHTML, recomenda-se que você tenha disponível um receita culinária e saiba um pouco sobre lógica de programação.
+
+Desse modo, é interessante entender que os utensílios que serão utilizados na receita foram considerados funções e que cada utensílio deve ter ao menos uma funcionalidade declarada. Essa funcionalidade seria uma subfunção da função. Por conseguinte, ressalta-se que os ingredientes declarados são considerados variáveis. Por conseguinte, ao programar o modo de preparo, todas essas variáveis devem ser utilizadas para que o compilador possa gerar um arquivo no formato HTML. Além disso, ressalta-se que  nem todos os utensílios declarados precisam ser utilizados, mas precisam ser declarados para que suas funcionalidades sejam utilizadas no modo de preparo e a receita ser compilada para o formato HTML.
+
+Assim, para escrever em receitaHTML, deve-se iniciar o código com certas palavras reservadas e seguir um padrão de escrita. Para iniciar o código, deve-se seguir o seguinte padrão:
+
+NOME: "nome"
+DESCRICAO: "descrição"
+RENDIMENTO: "rendimento"
+TEMPO DE PREPARO: "tempo de preparo"
+UTENSILIOS:
+
+NOME, DESCRICAO, RENDIMENTO, TEMPO DE PREPARO e UTENSILIOS
+DESCRICAO: "descrição"
+RENDIMENTO: "rendimento"
+TEMPO DE PREPARO: "tempo de preparo"
+UTENSILIOS:
+
+Verifica-se que as palavras reservadas NOME, DESCRICAO, RENDIMENTO, TEMPO DE PREPARO e UTENSILIOS (em maiúsculo) devem ser seguidas de :. Desse modo, NOME:, DESCRICAO:, RENDIMENTO: e TEMPO DE PREPARO: precisam ser seguidas por duas aspas duplas. Entre cada uma das aspas duplas, recomenda-se uma cadeia de caracteres sobre dados da receita sejam escritos. Observa-se que o compilador da linguagem não reconhece qualquer quebra de linha entre as aspas duplas e que qualquer aspas duplas precedida do caractere \ não será impressa, nem considerada como o final da cadeia de caracteres.
+
+Assim, após a palavra chave UTENSILIOS seguida por :, ao menos um utensílio e sua funcionalidade deve ser declarada. Para isso, deve-se iniciar a declaração com o caractere menos (-), seguido por um identificador, por um caractere =, por uma cadeia de caracteres entre aspas duplas e pela declaração da subfunção da função, como no exemplo abaixo:
+
+- identificador_funcao = "nome do utensílio" {
+    * identificador_subfuncao = "Descrição da funcionalidade"
+    
+}
+
+
+Verifica-se que um utensílio é identificado pelo identificador identificador_funcao. Ele armazena a cadeia de caracteres "nome do utensílio". Além disso, identificador_funcao não pode ser o mesmo para funções diferentes. Ele também deve começar com uma letra minúscula ou maiúscula que então pode ser seguida por underscore, por números ou mesmo por mais letras maiúculas ou minúsculas. O mesmo vale para o identidicador identificador_subfuncao, que pode ser um identificador de uma subfunção. Este armazena uma descrição de uma funcionalidade de um utensílio. De qualquer modo, identificador_subfuncao deve ficar entre os caracteres { e }. Além disso, deve ser precedido do caractere * e seguido pelo caractere =, que deve ser seguido por duas aspas duplas.
+
+
+Assim, os ingredientes precisam ser declarados para serem usados no modo de preparo. Para isso, após o caractere } referente a declaração de uma função, deve vir a palavra chave INGREDIENTES seguida do caractere :. Desse modo, o seguinte padrão deve ser seguido:
+
+- identificador_ingrediente = "descrição_ingrediente"
+
+As regras para declaração de identificador_ingrediente são as mesmas que para qualquer identificador da linguagem, ou seja, são iguais as de identificador_funcao. A sequência de caractereres também deve seguir o padrão apresentado.
+
+Vale resaltar que todas essas descrições entre aspas duplas, tanto dos utensílios, quanto dos ingredientes, serão apresentadas no arquivo HTML final gerado pelo compilador da linguagem sem as aspas duplas.
+
+Continuando, após a última aspas duplas que fecha a descrição de um ingrediente, é necessário que a sequência de palavras chaves MODO DE PREPARO: sejam escritas no código. Assim, o modo de preparo pode ser programado por meio de chamadas a utensilios, suas respectivas subfunções e os ingredientes, no seguinte formato customizável:
+
+identificador_passo NUMERO_INTEIRO: {
+	condicional_ate "descrição_condição"
+		identificador_funcao.identificador_subfuncao(identificador_ingrediente1 + identificador_ingrediente + "descrição_opcional")
+	instrucao_para_utensilio
+	identificador_funcao.identificador_subfuncao("descrição_opcional" + identificador_ingrediente1 + identificador_ingrediente)
+	instrucao_("Descrição instrução")
+}
+
+
+
+
+
+
+
+
+
+
