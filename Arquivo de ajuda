@@ -1,0 +1,17 @@
+Arquivo de ajuda com a descrição de como compilar o compilador, para possibilitar que outras pessoas possam modificar seu código.
+
+Para compilar o compilador, execute os seguintes passos:
+
+1. Primeiramente, baixe este repositório clicando no link: https://github.com/rennesfreitassouza/T4CC1/archive/master.zip
+
+2. Descompacte na pasta de sua preferência.
+
+3. Então instale os seguintes programas no Sistema Operacional de sua máquina:
+-Java™ SE Development Kit 11.0.7;
+-Apache NetBeans IDE 11.3 (o analisador sintático foi totalmente escrito e compilado por meio desta IDE);
+
+4. Após a instalação destes softwares, apenas execute o NetBeans, clique em File no topo da tela, selecione a opção Open Project e selecione a pasta receitaHTML que está dentro da pasta onde o repositório foi descompactado. Dessa forma, clique em Open Project.
+
+5. Para executar a compilação, apenas pressione F11.
+
+6. (Opcional) Navegue pelo código!
