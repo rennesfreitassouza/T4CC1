@@ -89,4 +89,15 @@ Por fim, o padrão:
 
 instrucao_("Descrição instrução")
 
-consiste da palavra chave instrucao_, seguida do abre parêntesis, de uma cadeia de caracteres entre aspas duplas e por um fecha parêntesis. Este padrão é opcional.
+consiste da palavra chave instrucao_, seguida do abre parêntesis, de uma cadeia de caracteres entre aspas duplas e por um fecha parêntesis. Este padrão é opcional.___________________________________________________________________
+Apesar de parecer difícil em um primeiro momento, recomenda-se que códigos sejam escritos para uma melhor compreensão da linguagem. Entender a forma que a página HTML é gerada a partir do código fonte em receita HTML pode ser útil. Para isso, recomenda-se um código em receitaHTML seja compilado por meio de linha de comando (como o PowerShell). O compilador executável se encontra neste repositório. Para executá-lo, o comando executado deverá seguir o seguinte formato:
+
+"java -jar ARG1 ARG2 ARG3"
+
+-ARG1 consiste no caminho absoluto a partir da raiz do disco para o executável que está na pasta \NetBeansProjects\receitaHTML\target e possui o nome receitahtml-1.0-SNAPSHOT-jar-with-dependencies.jar
+-ARG2 consiste no absoluto a partir da raiz do disco para o arquivo de texto com o código escrito na linguagem receitaHTML.
+-ARG3 consiste no absoluto a partir da raiz do disco para um arquivo de texto ou arquivo HTML que será criado a partir do código fonte da linguagem e apresentará a receita
+
+java.exe -jar C:\Users\UsuárioR\Documents\NetBeansProjects\receitaHTML\target\receitahtml-1.0-SNAPSHOT-jar-with-dependencies.jar C:\Users\UsuárioR\Documents\CC1\T4\Testes_lexico\caso_de_teste_1.txt C:\Users\UsuárioR\Documents\CC1\T4\saida\arquivo.html
+
+Após o comando ser executado, basta ir no diretório em que o arquivo de texto ou HTML foi criado e verificar se a compilação foi feita com sucesso.
