@@ -1,4 +1,4 @@
-#Descrição de como utilizar a linguagem e o compilador:
+# Descrição de como utilizar a linguagem/compilador
 
 Para começar a escrever em receitaHTML, recomenda-se que você tenha disponível um receita culinária e saiba um pouco sobre lógica de programação.
 
@@ -35,11 +35,11 @@ Assim, os ingredientes precisam ser declarados para serem usados no modo de prep
 
 - identificador_ingrediente = "descrição_ingrediente"
 
-As regras para declaração de identificador_ingrediente são as mesmas que para qualquer identificador da linguagem, ou seja, são iguais as de identificador_funcao. A sequência de caractereres também deve seguir o padrão apresentado.
+As regras para declaração de identificador_ingrediente são as mesmas que para qualquer identificador da linguagem, ou seja, são iguais às de identificador_funcao. A sequência de caracteres também deve seguir o padrão apresentado.
 
-Vale resaltar que todas essas descrições entre aspas duplas, tanto dos utensílios, quanto dos ingredientes, serão apresentadas no arquivo HTML final gerado pelo compilador da linguagem sem as aspas duplas.
+Vale ressaltar que todas essas descrições entre aspas duplas, tanto dos utensílios, quanto dos ingredientes, serão apresentadas no arquivo HTML final gerado pelo compilador da linguagem sem as aspas duplas.
 
-Continuando, após a última aspas duplas que fecha a descrição de um ingrediente, é necessário que a sequência de palavras chaves MODO DE PREPARO: sejam escritas no código. Assim, o modo de preparo pode ser programado por meio de chamadas a utensilios, suas respectivas subfunções e os ingredientes, no seguinte formato customizável:
+Continuando, após a última aspas duplas que fecha a descrição de um ingrediente, é necessário que a sequência de palavras chaves MODO DE PREPARO: sejam escritas no código. Assim, o modo de preparo pode ser programado por meio de chamadas a utensílios, suas respectivas subfunções e os ingredientes, no seguinte formato customizável:
 
 identificador_passo NUMERO_INTEIRO: {
 	condicional_ate "descrição_condição"
@@ -49,12 +49,44 @@ identificador_passo NUMERO_INTEIRO: {
 	instrucao_("Descrição instrução")
 }
 
+Explicando cada item:
 
+identificador_passo deve estar presente no código e possui as mesmas regras de escrita que qualquer identificador da linguagem receitaHTML.;
 
+NUMERO_INTEIRO não precisa necessariamente estar presente no código. Mas de estiver, deve ser um número inteiro. A soma de todos os números inseridos em cada passo do modo de preparo serão somados e substituirão a cadeia de caracteres após TEMPO DE PREPARO: será substituída pelo valor resultante da soma e apresentada ao usuário por meio da página gerada;
 
+:{ palavras reservadas que devem estar presentes no código;
 
+O padrão:
 
+condicional_ate "descrição_condição"
+	identificador_funcao.identificador_subfuncao(identificador_ingrediente1 + identificador_ingrediente + "descrição_opcional")
 
+é opcional, mas de estiver presente em algum passo do código, deve ser escrito no formato apresentado. Desse modo:
+condicional_ate deve ser a palavra ATE;
+descrição_condição deve ser uma cadeia de caracteres entre aspas duplas, que pode ser a condição de parada do loop;
+identificador_funcao deve ser o identificador já declarado de uma função;
+identificador_subfuncao deve ser o identificador da respectiva subfunção;
+( deve estar presente na chamada a subfunção da função;
+identificador_ingrediente1 deve ser um identificador de ingrediente já declarado, mas não é obrigatório em uma chamada;
++ deve aparecer caso alguma cadeia de caracteres entre aspas duplas também faça parte dos argumentos da subfunção ou mesmo caso mais variáveis sejam adicionadas ao utensílio.
+) deve estar presente na chamada a subfunção da função
 
+Continuando:
+instrucao_para_utensilio deve estar presente no código, mas também possui um formato customizável. Uma instrução pode estar presente ou não antes de uma chamada a uma função e sua respectiva subfunção, mas deve estar presente no código caso nenhuma chamada a uma função e sua subfunção for feita depois da instrução. O formato dessa instrução é:
 
+"cadeia_de caracteres1" identificador_funcao "cadeia_de_caracteres2"
 
+"cadeia_de caracteres1" deve estar presente para identificação da instrução;
+identificador_funcao deve ser um identificador de uma função declarada;
+"cadeia_de caracteres2" é opcional.
+
+Então, caso ocorra a necessidade de declarar o uso de um utensílio, isto deve ser feito no mesmo formato já explicado:
+
+identificador_funcao.identificador_subfuncao("descrição_opcional" + identificador_ingrediente1 + identificador_ingrediente)
+
+Por fim, o padrão:
+
+instrucao_("Descrição instrução")
+
+consiste da palavra chave instrucao_, seguida do abre parêntesis, de uma cadeia de caracteres entre aspas duplas e por um fecha parêntesis. Este padrão é opcional.
