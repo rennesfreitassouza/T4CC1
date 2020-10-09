@@ -12,26 +12,17 @@ RENDIMENTO: "rendimento"
 TEMPO DE PREPARO: "tempo de preparo"
 UTENSILIOS:
 
-NOME, DESCRICAO, RENDIMENTO, TEMPO DE PREPARO e UTENSILIOS
-DESCRICAO: "descrição"
-RENDIMENTO: "rendimento"
-TEMPO DE PREPARO: "tempo de preparo"
-UTENSILIOS:
-
 Verifica-se que as palavras reservadas NOME, DESCRICAO, RENDIMENTO, TEMPO DE PREPARO e UTENSILIOS (em maiúsculo) devem ser seguidas de :. Desse modo, NOME:, DESCRICAO:, RENDIMENTO: e TEMPO DE PREPARO: precisam ser seguidas por duas aspas duplas. Entre cada uma das aspas duplas, recomenda-se uma cadeia de caracteres sobre dados da receita sejam escritos. Observa-se que o compilador da linguagem não reconhece qualquer quebra de linha entre as aspas duplas e que qualquer aspas duplas precedida do caractere \ não será impressa, nem considerada como o final da cadeia de caracteres.
 
 Assim, após a palavra chave UTENSILIOS seguida por :, ao menos um utensílio e sua funcionalidade deve ser declarada. Para isso, deve-se iniciar a declaração com o caractere menos (-), seguido por um identificador, por um caractere =, por uma cadeia de caracteres entre aspas duplas e pela declaração da subfunção da função, como no exemplo abaixo:
 
 - identificador_funcao = "nome do utensílio" {
     * identificador_subfuncao = "Descrição da funcionalidade"
-    
-}
-
+    }
 
 Verifica-se que um utensílio é identificado pelo identificador identificador_funcao. Ele armazena a cadeia de caracteres "nome do utensílio". Além disso, identificador_funcao não pode ser o mesmo para funções diferentes. Ele também deve começar com uma letra minúscula ou maiúscula que então pode ser seguida por underscore, por números ou mesmo por mais letras maiúculas ou minúsculas. O mesmo vale para o identidicador identificador_subfuncao, que pode ser um identificador de uma subfunção. Este armazena uma descrição de uma funcionalidade de um utensílio. De qualquer modo, identificador_subfuncao deve ficar entre os caracteres { e }. Além disso, deve ser precedido do caractere * e seguido pelo caractere =, que deve ser seguido por duas aspas duplas.
 
-
-Assim, os ingredientes precisam ser declarados para serem usados no modo de preparo. Para isso, após o caractere } referente a declaração de uma função, deve vir a palavra chave INGREDIENTES seguida do caractere :. Desse modo, o seguinte padrão deve ser seguido:
+Assim, os ingredientes precisam ser declarados para serem usados no modo de preparo. Para isso, após o caractere } referente a declaração de uma função, deve vir a palavra chave INGREDIENTES seguida do caractere :. Desse modo, deve-se seguir o seguinte padrão para declaração de um ingrediente:
 
 - identificador_ingrediente = "descrição_ingrediente"
 
@@ -43,7 +34,7 @@ Continuando, após a última aspas duplas que fecha a descrição de um ingredie
 
 identificador_passo NUMERO_INTEIRO: {
 	condicional_ate "descrição_condição"
-		identificador_funcao.identificador_subfuncao(identificador_ingrediente1 + identificador_ingrediente + "descrição_opcional")
+		identificador_funcao.identificador_subfuncao(identificador_ingrediente1 + identificador_ingredienteN + "descrição_opcional")
 	instrucao_para_utensilio
 	identificador_funcao.identificador_subfuncao("descrição_opcional" + identificador_ingrediente1 + identificador_ingrediente)
 	instrucao_("Descrição instrução")
@@ -51,9 +42,9 @@ identificador_passo NUMERO_INTEIRO: {
 
 Explicando cada item:
 
-identificador_passo deve estar presente no código e possui as mesmas regras de escrita que qualquer identificador da linguagem receitaHTML.;
+identificador_passo deve estar presente no código e possui as mesmas regras de escrita que qualquer identificador da linguagem receitaHTML;
 
-NUMERO_INTEIRO não precisa necessariamente estar presente no código. Mas de estiver, deve ser um número inteiro. A soma de todos os números inseridos em cada passo do modo de preparo serão somados e substituirão a cadeia de caracteres após TEMPO DE PREPARO: será substituída pelo valor resultante da soma e apresentada ao usuário por meio da página gerada;
+NUMERO_INTEIRO não precisa necessariamente estar presente no código. Mas de estiver, deve ser um número inteiro. A soma de todos os números inseridos em cada passo do modo de preparo serão somados e substituirão a cadeia de caracteres após TEMPO DE PREPARO:. Ela será substituída pelo valor resultante da soma dos números inteiros e apresentada ao usuário por meio da página gerada;
 
 :{ palavras reservadas que devem estar presentes no código;
 
@@ -62,18 +53,18 @@ O padrão:
 condicional_ate "descrição_condição"
 	identificador_funcao.identificador_subfuncao(identificador_ingrediente1 + identificador_ingrediente + "descrição_opcional")
 
-é opcional, mas de estiver presente em algum passo do código, deve ser escrito no formato apresentado. Desse modo:
+é opcional, mas se estiver presente em algum passo do código, deve ser escrito no formato apresentado. Desse modo:
 condicional_ate deve ser a palavra ATE;
 descrição_condição deve ser uma cadeia de caracteres entre aspas duplas, que pode ser a condição de parada do loop;
 identificador_funcao deve ser o identificador já declarado de uma função;
 identificador_subfuncao deve ser o identificador da respectiva subfunção;
 ( deve estar presente na chamada a subfunção da função;
-identificador_ingrediente1 deve ser um identificador de ingrediente já declarado, mas não é obrigatório em uma chamada;
+identificador_ingrediente1 deve ser um identificador de ingrediente já declarado, mas não é obrigatório em uma chamada (o mesmo valor para identificador_ingredienteN);
 + deve aparecer caso alguma cadeia de caracteres entre aspas duplas também faça parte dos argumentos da subfunção ou mesmo caso mais variáveis sejam adicionadas ao utensílio.
 ) deve estar presente na chamada a subfunção da função
 
 Continuando:
-instrucao_para_utensilio deve estar presente no código, mas também possui um formato customizável. Uma instrução pode estar presente ou não antes de uma chamada a uma função e sua respectiva subfunção, mas deve estar presente no código caso nenhuma chamada a uma função e sua subfunção for feita depois da instrução. O formato dessa instrução é:
+instrucao_para_utensilio deve estar presente no código, mas também possui um formato customizável. Uma instrução pode estar presente ou não antes de uma chamada a uma função e sua respectiva subfunção, mas deve estar presente no código caso nenhuma chamada a uma função e sua subfunção for feita depois desta instrução. O formato desta instrução é:
 
 "cadeia_de caracteres1" identificador_funcao "cadeia_de_caracteres2"
 
@@ -89,15 +80,25 @@ Por fim, o padrão:
 
 instrucao_("Descrição instrução")
 
-consiste da palavra chave instrucao_, seguida do abre parêntesis, de uma cadeia de caracteres entre aspas duplas e por um fecha parêntesis. Este padrão é opcional.___________________________________________________________________
-Apesar de parecer difícil em um primeiro momento, recomenda-se que códigos sejam escritos para uma melhor compreensão da linguagem. Entender a forma que a página HTML é gerada a partir do código fonte em receita HTML pode ser útil. Para isso, recomenda-se um código em receitaHTML seja compilado por meio de linha de comando (como o PowerShell). O compilador executável se encontra neste repositório. Para executá-lo, o comando executado deverá seguir o seguinte formato:
+consiste da palavra chave instrucao_, seguida do abre parêntesis, de uma cadeia de caracteres entre aspas duplas e por um fecha parêntesis. Este padrão é opcional.
+___________________________________________________________________
+Apesar de parecer difícil em um primeiro momento, recomenda-se que códigos sejam escritos para uma melhor compreensão da linguagem. De qualquer forma, entender a forma que a página HTML é gerada a partir do código fonte em receita HTML pode ser útil. Para isso, recomenda-se um código em receitaHTML seja compilado por meio de linha de comando (como o PowerShell). O compilador executável se encontra neste repositório (em https://github.com/rennesfreitassouza/T4CC1/blob/master/receitaHTML/target/receitahtml-1.0-SNAPSHOT-jar-with-dependencies.jar). Para executá-lo, o comando executado deverá seguir o seguinte formato:
 
 "java -jar ARG1 ARG2 ARG3"
 
--ARG1 consiste no caminho absoluto a partir da raiz do disco para o executável que está na pasta \NetBeansProjects\receitaHTML\target e possui o nome receitahtml-1.0-SNAPSHOT-jar-with-dependencies.jar
+-ARG1 consiste no caminho absoluto a partir da raiz do disco para o compilador quee possui o nome receitahtml-1.0-SNAPSHOT-jar-with-dependencies.jar
 -ARG2 consiste no absoluto a partir da raiz do disco para o arquivo de texto com o código escrito na linguagem receitaHTML.
 -ARG3 consiste no absoluto a partir da raiz do disco para um arquivo de texto ou arquivo HTML que será criado a partir do código fonte da linguagem e apresentará a receita
 
+Um exemplo de comando para ser executado no PowerShell seria:
 java.exe -jar C:\Users\UsuárioR\Documents\NetBeansProjects\receitaHTML\target\receitahtml-1.0-SNAPSHOT-jar-with-dependencies.jar C:\Users\UsuárioR\Documents\CC1\T4\Testes_lexico\caso_de_teste_1.txt C:\Users\UsuárioR\Documents\CC1\T4\saida\arquivo.html
 
-Após o comando ser executado, basta ir no diretório em que o arquivo de texto ou HTML foi criado e verificar se a compilação foi feita com sucesso.
+Após o comando ser executado, basta ir no diretório em que o arquivo de texto ou HTML foi criado e verificar se a compilação foi feita com sucesso. Caso algum erro for apresentado, recomenda-se que a extensão do arquivo.html do último argumento seja mudada para .txt. Do mesmo modo, caso a compilação de certo, é necessário que a essa extensão seja .html.
+
+Exemplos de códigos em receitaHTML prontos estão disponíveis em: https://github.com/rennesfreitassouza/T4CC1/tree/master/Geracao_de_codigo
+Em https://github.com/rennesfreitassouza/T4CC1/tree/master/Testes_lexico encontram-se os códigos com alguns erros léxicos que foram escritos para teste do analisador léxico do compilador.
+Já em https://github.com/rennesfreitassouza/T4CC1/tree/master/Testes_sintatico encontram-se os códigos com alguns erros sintáticos que foram escritos para teste do analisador sintáticos do compilador.
+E em https://github.com/rennesfreitassouza/T4CC1/tree/master/Testes_semantico encontram-se os códigos com erros alguns erros semânticos que foram escritos para teste do analisador semâmntico do compilador.
+
+Interessado em ver o código fonte do compilador da linguagem receitaHTML? Acesse: https://github.com/rennesfreitassouza/T4CC1/blob/master/Arquivo%20de%20ajuda
+
