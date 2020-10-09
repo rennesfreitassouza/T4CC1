@@ -1,4 +1,4 @@
-Arquivo de ajuda com a descrição de como compilar o compilador, para possibilitar que outras pessoas possam modificar seu código.
+Arquivo de ajuda com a descrição de como compilar o compilador e possivelmente analisar o código fonte dele.
 
 Para compilar o compilador, execute os seguintes passos:
 
@@ -12,6 +12,6 @@ Para compilar o compilador, execute os seguintes passos:
 
 4. Após a instalação destes softwares, apenas execute o NetBeans, clique em File no topo da tela, selecione a opção Open Project e selecione a pasta receitaHTML que está dentro da pasta onde o repositório foi descompactado. Dessa forma, clique em Open Project.
 
-5. Para executar a compilação, apenas pressione F11.
+5. Com o projeto aberto, para executar a compilação, apenas pressione F11.
 
 6. (Opcional) Navegue pelo código!
